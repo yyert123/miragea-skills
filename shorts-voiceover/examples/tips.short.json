@@ -1,0 +1,28 @@
+{
+  "video": "tips.short.mp4",
+  "srt": "tips.short.srt",
+  "duration": 24.36,
+  "resolution": "1080x1920",
+  "scenes": [
+    {
+      "text": "Three quick tips to make any voiceover sound professional.",
+      "media": "gradient",
+      "seconds": 4.22
+    },
+    {
+      "text": "First, record in a small room with soft furniture. Echo is harder to fix than noise.",
+      "media": "broll/02.mp4",
+      "seconds": 7.19
+    },
+    {
+      "text": "Second, keep the mic a hand's width from your mouth, and slightly off to the side.",
+      "media": "gradient",
+      "seconds": 5.66
+    },
+    {
+      "text": "Third, fix mistakes by re-voicing just the sentence, instead of recording the whole take again.",
+      "media": "gradient",
+      "seconds": 7.29
+    }
+  ]
+}
