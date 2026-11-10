@@ -18,8 +18,10 @@ export MIRAGEA_API_KEY=your_key                   # https://miragea.ai
 |---|---|---|---|
 | [video-captions](video-captions/) | Any video/audio -> readable SRT + VTT (whole words, 42-char lines) and optional burned-in MP4, incl. 1-3 word "pop" captions for Shorts/Reels/TikTok | `python3 scripts/captions.py talk.mp4 --burn` | 2026-11-08 |
 | [remotion-narration](remotion-narration/) | Script -> one MP3 per scene, measured durations -> `durationInFrames`, word-level Remotion `Caption[]`, SRT | `python3 scripts/narrate.py script.md --voice ID` | 2026-11-08 |
+| [screen-recording-voiceover](screen-recording-voiceover/) | Silent screen recording -> narrated MP4: finds the steps, voices one line per step, starts each line on its step, auto speed-up / freeze-frame when a line runs long, ducked music, captions | `python3 scripts/voiceover.py demo.mp4 demo.script.txt` | 2026-11-10 |
+| [shorts-voiceover](shorts-voiceover/) | Text script -> finished 1080x1920 Short/Reel/TikTok: voiceover, captions timed from the real speech, Ken Burns images / B-roll / gradients, ducked music, -14 LUFS | `python3 scripts/short.py tips.txt` | 2026-11-10 |
 
-Live demo (captioned videos): https://huggingface.co/spaces/headvox/miragea-skills
+Live demos (captioned videos, a narrated screen recording and a Short): https://huggingface.co/spaces/headvox/miragea-skills
 
 New skills are added here as they ship. Each one is tested offline (`pytest tests`) and on real audio.
 
@@ -35,6 +37,28 @@ New skills are added here as they ship. Each one is tested offline (`pytest test
 | Your own cloned voice | Saved voice id or reference clip | Yes (paid plans) | No (TTS separate) | Limited voice list |
 | Re-runs | Cached: unchanged scenes / transcripts are free | Re-billed | Re-computed | n/a |
 | Cost | Pay-as-you-go Miragea points | Subscription credits | Free, your hardware | App subscription |
+
+### Screen recording voiceover vs. the alternatives
+
+| | **screen-recording-voiceover** | Vorec / Clueso / DemoPolish / ScreenStory | Descript / Camtasia | Screen Studio | By hand (TTS + editor) |
+|---|---|---|---|---|---|
+| Price | Free, MIT; pay-as-you-go voice | $9-19+/month subscriptions | Subscription / license | No TTS (request closed) | TTS plan + your time |
+| Your own cloned voice | Yes | Mostly stock voices | Descript: yes, in-app | - | Depends |
+| Each line starts on its step | Automatic, from timestamps | Automatic | Manual on timeline | - | Manual, frame by frame |
+| Line longer than the action | Auto speed-up (max 1.15x), then freeze-frame | Some (freeze-sync) | Manual | - | Manual |
+| Runs locally on your file, any recorder | Yes (OBS, QuickTime, Loom, Screen Studio exports) | Upload to their cloud | In-app | - | Yes |
+| Used by AI agents | Yes (Agent Skill; agent reads the frames and writes the lines) | No | No | No | No |
+
+### Shorts voiceover vs. the alternatives
+
+| | **shorts-voiceover** | MoneyPrinterTurbo / short-video-maker | CapCut text-to-speech | Paid faceless-video SaaS |
+|---|---|---|---|---|
+| Setup | Python stdlib + ffmpeg | Docker or large Python env, stock-footage API key | App, per project | Account + subscription |
+| Voice | Your saved/cloned Miragea voice | Free TTS voices (Edge, Kokoro) | Fixed voice list, char caps | Stock voices |
+| Caption timing | Transcribed from the finished voice | Estimated or extra Whisper model | Auto, in-app | Varies |
+| Your own images/clips, per scene | `@file` or a folder | Stock search terms | Manual | Upload |
+| Loudness for Shorts | -14 LUFS automatic | Not normalized | Not normalized | Varies |
+| Re-run after one edit | Only changed scenes re-voiced | Full re-render and re-voice | Manual | Re-generate |
 
 Honest limits: speech recognition is cloud-based (needs a key and internet); reference clips for cloning
 must currently be public URLs (an upload endpoint is planned by Miragea); English is the focus.

@@ -6,6 +6,9 @@
 - [video-captions](https://github.com/yyert123/miragea-skills/tree/main/video-captions): caption any video or audio into readable SRT/VTT (whole words, 42-char lines) and burn captions into MP4, including 1-3 word Shorts/Reels/TikTok captions. `python3 scripts/captions.py input.mp4 --burn`
 - [remotion-narration](https://github.com/yyert123/miragea-skills/tree/main/remotion-narration): script to per-scene voiceover MP3s, measured durations as Remotion durationInFrames, word-level Remotion Caption[] JSON and SRT. `python3 scripts/narrate.py script.md --voice VOICE_ID`
 
+- [screen-recording-voiceover](https://github.com/yyert123/miragea-skills/tree/main/screen-recording-voiceover): add a timed AI voiceover to a silent screen recording; finds steps, voices one line per step, auto speed-up or freeze-frame when a line runs long, ducked music, SRT/VTT, burned captions. `python3 scripts/voiceover.py demo.mp4 demo.script.txt --voice VOICE_ID`
+- [shorts-voiceover](https://github.com/yyert123/miragea-skills/tree/main/shorts-voiceover): text script to a finished 1080x1920 YouTube Short / TikTok / Reel with voiceover, captions timed from the real speech, Ken Burns images or B-roll or gradients, ducked music, -14 LUFS. `python3 scripts/short.py script.txt --voice VOICE_ID`
+
 ## Facts
 - Requires MIRAGEA_API_KEY (environment variable). Keys are never printed or stored.
 - Captions cost 3 Miragea points per audio second; speech is billed per character; cached re-runs are free.
