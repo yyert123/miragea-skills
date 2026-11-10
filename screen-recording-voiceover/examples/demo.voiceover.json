@@ -1,0 +1,38 @@
+{
+  "video": "demo.voiceover.mp4",
+  "voice_track": "demo.voiceover.wav",
+  "srt": "demo.voiceover.srt",
+  "vtt": "demo.voiceover.vtt",
+  "source_duration": 14.0,
+  "output_duration": 14.427,
+  "frozen_seconds": 0.427,
+  "lines": [
+    {
+      "text": "Welcome to Acme. Here is the dashboard you see after signing in.",
+      "src_start": 0.0,
+      "src_end": 4.0,
+      "start": 0.0,
+      "duration": 4.079,
+      "speed": 1.15,
+      "freeze": 0.329
+    },
+    {
+      "text": "Click New Project, type a name, and choose the team that should own it.",
+      "src_start": 4.0,
+      "src_end": 9.0,
+      "start": 4.328659130434782,
+      "duration": 4.226,
+      "speed": 1.0,
+      "freeze": 0.0
+    },
+    {
+      "text": "That's it. Your project is ready, and your teammates can see it right away.",
+      "src_start": 9.0,
+      "src_end": 14.0,
+      "start": 9.328659130434783,
+      "duration": 4.598,
+      "speed": 1.0,
+      "freeze": 0.098
+    }
+  ]
+}

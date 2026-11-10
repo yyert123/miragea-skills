@@ -1,0 +1,18 @@
+1
+00:00:00,000 --> 00:00:01,067
+Welcome to Acme.
+
+2
+00:00:01,067 --> 00:00:04,079
+Here is the dashboard
+you see after signing in.
+
+3
+00:00:04,329 --> 00:00:08,555
+Click New Project, type a name, and
+choose the team that should own it.
+
+4
+00:00:09,329 --> 00:00:13,927
+That's it. Your project is ready, and
+your teammates can see it right away.
