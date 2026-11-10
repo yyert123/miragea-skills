@@ -68,3 +68,68 @@ def test_long_scene_is_chunked_under_api_limit():
     parts = nar.chunks(text)
     assert len(parts) > 1 and all(len(p) <= 1900 for p in parts)
     assert " ".join(parts) == text
+
+
+# --- screen-recording-voiceover -------------------------------------------------------------
+
+def test_voiceover_script_parsing_and_errors():
+    vo = load("screen-recording-voiceover", "voiceover")
+    lines = vo.parse_script("# c\n[00:00] Hello there.\n00:04.5 - Click Save.\n[1:02:03] Late.\n[00:09] # step 3: 5s, ~11 words\n".replace("[00:09]", "[1:02:09]"))
+    assert [l["t"] for l in lines] == [0.0, 4.5, 3723.0]
+    assert lines[1]["text"] == "Click Save."
+    import pytest
+    with pytest.raises(vo.ScriptError, match="line 2"):
+        vo.parse_script("[00:05] A.\n[00:03] B.\n")
+    with pytest.raises(vo.ScriptError, match="no timestamp"):
+        vo.parse_script("Hello without time\n")
+
+
+def test_voiceover_plan_speeds_up_then_freezes_and_shifts_later_lines():
+    vo = load("screen-recording-voiceover", "voiceover")
+    lines = [{"t": 0.0, "text": "a"}, {"t": 4.0, "text": "b"}, {"t": 9.0, "text": "c"}]
+    p = vo.plan(lines, 14.0, [3.0, 4.5, 2.0], max_speed=1.15)
+    assert p[0]["speed"] == 1.0 and p[0]["freeze"] == 0
+    assert p[1]["speed"] == 1.0 and p[1]["freeze"] == 0          # 4.5 fits in 5.0 - 0.25
+    p = vo.plan(lines, 14.0, [5.5, 2.0, 2.0], max_speed=1.15)
+    assert p[0]["speed"] == 1.15 and p[0]["freeze"] > 0
+    assert abs(p[1]["start"] - (4.0 + p[0]["freeze"])) < 1e-3     # later lines shift, never overlap
+    assert p[0]["start"] + p[0]["duration"] <= p[1]["start"] - 0.2
+
+
+def test_voiceover_caption_words_cover_spoken_time():
+    vo = load("screen-recording-voiceover", "voiceover")
+    ws = vo.caption_words([{"text": "Click the big button", "start": 2.0, "duration": 2.0}])
+    assert ws[0]["start"] == 2.0 and abs(ws[-1]["end"] - 4.0) < 1e-6
+    assert all(b["start"] >= a["start"] for a, b in zip(ws, ws[1:]))
+
+
+def test_scene_merge_starts_at_zero_and_respects_gap_and_cap():
+    sc = load("screen-recording-voiceover", "scenes")
+    assert sc.merge([0.5, 1.0, 5.0, 6.0, 12.0, 29.5], 30.0, 3.0, 40) == [0.0, 5.0, 12.0]
+    many = sc.merge([float(i) for i in range(3, 300, 3)], 300.0, 3.0, 10)
+    assert len(many) == 10 and many[0] == 0.0
+
+
+# --- shorts-voiceover -----------------------------------------------------------------------
+
+def test_shorts_script_parsing_with_media_and_comments():
+    sh = load("shorts-voiceover", "short")
+    sc = sh.parse_script("Hook line.\n\n@broll/a.mp4\nFirst tip,\nwrapped.\n\n# note only\n\nLast.")
+    assert sc == [{"text": "Hook line.", "media": None}, {"text": "First tip, wrapped.", "media": "broll/a.mp4"},
+                  {"text": "Last.", "media": None}]
+    import pytest
+    with pytest.raises(ValueError):
+        sh.parse_script("   \n\n ")
+
+
+def test_shorts_media_assignment_skips_named_files(tmp_path):
+    sh = load("shorts-voiceover", "short")
+    d = tmp_path / "m"
+    d.mkdir()
+    for n in ("01.png", "02.jpg", "03.mp4", "notes.txt"):
+        (d / n).write_bytes(b"x")
+    scenes = [{"text": "a", "media": None}, {"text": "b", "media": "02.jpg"}, {"text": "c", "media": None},
+              {"text": "d", "media": None}]
+    got = [p.name for p in sh.assign_media(scenes, tmp_path, d)]
+    assert got == ["01.png", "02.jpg", "03.mp4", "01.png"]
+    assert sh.assign_media([{"text": "a", "media": None}], tmp_path, None) == [None]
