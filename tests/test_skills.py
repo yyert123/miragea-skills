@@ -133,3 +133,29 @@ def test_shorts_media_assignment_skips_named_files(tmp_path):
     got = [p.name for p in sh.assign_media(scenes, tmp_path, d)]
     assert got == ["01.png", "02.jpg", "03.mp4", "01.png"]
     assert sh.assign_media([{"text": "a", "media": None}], tmp_path, None) == [None]
+
+
+def test_article_to_video_parse_and_srt():
+    m = load("article-to-video", "article2video")
+    sc = m.parse((ROOT / "article-to-video" / "examples" / "post.md").read_text())
+    assert [s["title"] for s in sc] == ["Why short videos win", "Cut the dead air", "Say it once"]
+    assert all(len(l) <= 170 for s in sc for l in s["lines"])
+    cues = m.caption_cues(["one two three four five six seven eight nine"], [4.0])
+    assert len(cues) == 2 and abs(cues[-1][1] - 4.0) < 1e-6
+    assert "00:00:00,000 -->" in m.to_srt(cues)
+
+
+def test_article_to_video_renders_with_stub_voice(tmp_path, monkeypatch):
+    import shutil, subprocess
+    if not shutil.which("ffmpeg"):
+        return
+    m = load("article-to-video", "article2video")
+    import miragea_client
+    monkeypatch.setenv("MIRAGEA_API_KEY", "x")
+    def fake(self, text, out, **kw):
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "sine=d=0.6", str(out)], check=True)
+        return out
+    monkeypatch.setattr(miragea_client.Client, "speak", fake)
+    out = tmp_path / "a.mp4"
+    assert m.main([str(ROOT / "article-to-video/examples/post.md"), "-o", str(out), "--voice", "A1"]) == 0
+    assert out.stat().st_size > 1000 and out.with_suffix(".srt").exists()
