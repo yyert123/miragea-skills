@@ -14,6 +14,7 @@
 
 - [auto-broll](https://github.com/yyert123/miragea-skills/tree/main/auto-broll): automatic B-roll for talking-head videos, podcasts, tutorials and faceless videos; the agent picks cutaways from a word-timed transcript, every cut lands on the spoken word, speaker audio untouched, cover-crop 16:9/9:16, Ken Burns stills, editorial checks (hook, flash cuts, coverage), MP4 + CMX 3600 EDL for Premiere/Resolve; own clips or free Pexels stock; faceless mode voices a script in a cloned voice. `python3 scripts/broll.py render talk.mp4 talk.broll.json`
 - [ugc-video-ads](https://github.com/yyert123/miragea-skills/tree/main/ugc-video-ads): UGC-style video ads for TikTok, Reels, YouTube Shorts and Meta without a video model; agent writes 3-5 hooks and a direct-response body, every hook x body voiced in your own cloned voice, captions and overlays in platform safe zones, end card + CTA, 3-second hook budget, ad-claim lint, 9:16/4:5/1:1, -14 LUFS, manifest for Ads Manager. `python3 scripts/ads.py render ad.json --ratios 9:16,4:5`
+- [audiogram-clips](https://github.com/yyert123/miragea-skills/tree/main/audiogram-clips): podcast to video / audiogram maker; captioned animated waveform MP4 from any audio clip for TikTok, Shorts, Reels, LinkedIn, X; Miragea ASR captions, cover art, 4 aspect ratios. `python3 scripts/audiogram.py clip.mp3 -o clip.mp4`
 ## Facts
 - Requires MIRAGEA_API_KEY (environment variable). Keys are never printed or stored.
 - Captions cost 3 Miragea points per audio second; speech is billed per character; cached re-runs are free.
