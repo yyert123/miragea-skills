@@ -1,0 +1,280 @@
+{
+ "source": "talk.mp4",
+ "mode": "talking-head",
+ "duration": 18.914,
+ "size": [
+  1280,
+  720
+ ],
+ "rules": {
+  "min": 1.2,
+  "max": 6.0,
+  "lead": 0.1,
+  "gap": 0.8,
+  "protect_start": 2.0
+ },
+ "instructions": "Add 'cutaways': one object per B-roll shot, e.g. {\"line\": 3, \"on\": \"espresso\", \"clip\": \"broll/espresso.mp4\", \"dur\": 2.5}. 'on' is the spoken word or phrase the cut lands on (it must appear in that line's words); 'clip' is a file from 'library' or 'pexels:<search words>'; 'dur' is optional (default: until the line ends, 1.2-4 s); 'clip_start' picks the in-point inside a video clip. Show what is being said (concrete nouns, actions, numbers, places), not the speaker's opinions. Talking head: cover 20-40% of the runtime, never the first 2 s, leave at least 1 s of speaker between shots. Faceless narration: one shot every 2-4 s, each runs until the next. Then run: broll.py check <this file>",
+ "library": [
+  {
+   "file": "broll/globe.mp4",
+   "kind": "video",
+   "seconds": 6.0
+  },
+  {
+   "file": "broll/videos.mp4",
+   "kind": "video",
+   "seconds": 6.0
+  },
+  {
+   "file": "broll/stopwatch.mp4",
+   "kind": "video",
+   "seconds": 6.0
+  },
+  {
+   "file": "broll/upload.jpg",
+   "kind": "image"
+  },
+  {
+   "file": "broll/chart.mp4",
+   "kind": "video",
+   "seconds": 6.0
+  }
+ ],
+ "lines": [
+  {
+   "i": 0,
+   "start": 0.96,
+   "end": 4.11,
+   "text": "Want to grow your channel in another language?",
+   "words": [
+    [
+     "Want",
+     0.96
+    ],
+    [
+     "to",
+     1.24
+    ],
+    [
+     "grow",
+     1.39
+    ],
+    [
+     "your",
+     1.67
+    ],
+    [
+     "channel",
+     1.95
+    ],
+    [
+     "in",
+     2.45
+    ],
+    [
+     "another",
+     2.59
+    ],
+    [
+     "language?",
+     3.23
+    ]
+   ]
+  },
+  {
+   "i": 1,
+   "start": 4.11,
+   "end": 14.09,
+   "text": "Here is the one rule I learned after posting a hundred videos: say the payoff in the first three seconds, then explain how you got there.",
+   "words": [
+    [
+     "Here",
+     4.11
+    ],
+    [
+     "is",
+     4.51
+    ],
+    [
+     "the",
+     4.71
+    ],
+    [
+     "one",
+     5.01
+    ],
+    [
+     "rule",
+     5.32
+    ],
+    [
+     "I",
+     5.72
+    ],
+    [
+     "learned",
+     5.82
+    ],
+    [
+     "after",
+     6.42
+    ],
+    [
+     "posting",
+     6.98
+    ],
+    [
+     "a",
+     7.77
+    ],
+    [
+     "hundred",
+     7.88
+    ],
+    [
+     "videos:",
+     8.67
+    ],
+    [
+     "say",
+     9.24
+    ],
+    [
+     "the",
+     9.45
+    ],
+    [
+     "payoff",
+     9.66
+    ],
+    [
+     "in",
+     10.09
+    ],
+    [
+     "the",
+     10.23
+    ],
+    [
+     "first",
+     10.44
+    ],
+    [
+     "three",
+     10.8
+    ],
+    [
+     "seconds,",
+     11.09
+    ],
+    [
+     "then",
+     11.7
+    ],
+    [
+     "explain",
+     12.04
+    ],
+    [
+     "how",
+     12.64
+    ],
+    [
+     "you",
+     12.9
+    ],
+    [
+     "got",
+     13.07
+    ],
+    [
+     "there.",
+     13.51
+    ]
+   ]
+  },
+  {
+   "i": 2,
+   "start": 14.09,
+   "end": 18.0,
+   "text": "Try it on your next upload and watch your retention climb.",
+   "words": [
+    [
+     "Try",
+     14.09
+    ],
+    [
+     "it",
+     14.4
+    ],
+    [
+     "on",
+     14.6
+    ],
+    [
+     "your",
+     14.8
+    ],
+    [
+     "next",
+     15.2
+    ],
+    [
+     "upload",
+     15.6
+    ],
+    [
+     "and",
+     16.2
+    ],
+    [
+     "watch",
+     16.4
+    ],
+    [
+     "your",
+     16.76
+    ],
+    [
+     "retention",
+     17.05
+    ],
+    [
+     "climb.",
+     17.71
+    ]
+   ]
+  }
+ ],
+ "cutaways": [
+  {
+   "line": 0,
+   "on": "another language",
+   "clip": "broll/globe.mp4"
+  },
+  {
+   "line": 1,
+   "on": "a hundred videos",
+   "clip": "broll/videos.mp4",
+   "dur": 2.2
+  },
+  {
+   "line": 1,
+   "on": "first three seconds",
+   "clip": "broll/stopwatch.mp4",
+   "dur": 2.0
+  },
+  {
+   "line": 2,
+   "on": "upload",
+   "clip": "broll/upload.jpg",
+   "dur": 1.4
+  },
+  {
+   "line": 2,
+   "on": "retention",
+   "clip": "broll/chart.mp4",
+   "dur": 2.5
+  }
+ ]
+}

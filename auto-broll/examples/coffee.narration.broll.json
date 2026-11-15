@@ -1,0 +1,203 @@
+{
+ "source": "coffee.narration.wav",
+ "mode": "narration",
+ "duration": 12.323,
+ "size": [
+  1080,
+  1920
+ ],
+ "rules": {
+  "min": 1.2,
+  "max": 6.0,
+  "lead": 0.1,
+  "gap": 0.8,
+  "protect_start": 2.0
+ },
+ "instructions": "Add 'cutaways': one object per B-roll shot, e.g. {\"line\": 3, \"on\": \"espresso\", \"clip\": \"broll/espresso.mp4\", \"dur\": 2.5}. 'on' is the spoken word or phrase the cut lands on (it must appear in that line's words); 'clip' is a file from 'library' or 'pexels:<search words>'; 'dur' is optional (default: until the line ends, 1.2-4 s); 'clip_start' picks the in-point inside a video clip. Show what is being said (concrete nouns, actions, numbers, places), not the speaker's opinions. Talking head: cover 20-40% of the runtime, never the first 2 s, leave at least 1 s of speaker between shots. Faceless narration: one shot every 2-4 s, each runs until the next. Then run: broll.py check <this file>",
+ "library": [],
+ "lines": [
+  {
+   "i": 0,
+   "start": 0.0,
+   "end": 3.51,
+   "text": "Most people brew coffee with water that is too hot.",
+   "words": [
+    [
+     "Most",
+     0.0
+    ],
+    [
+     "people",
+     0.33
+    ],
+    [
+     "brew",
+     0.82
+    ],
+    [
+     "coffee",
+     1.15
+    ],
+    [
+     "with",
+     1.64
+    ],
+    [
+     "water",
+     1.96
+    ],
+    [
+     "that",
+     2.34
+    ],
+    [
+     "is",
+     2.76
+    ],
+    [
+     "too",
+     2.98
+    ],
+    [
+     "hot.",
+     3.29
+    ]
+   ]
+  },
+  {
+   "i": 1,
+   "start": 3.51,
+   "end": 7.34,
+   "text": "Aim for about 93 degrees, just off the boil.",
+   "words": [
+    [
+     "Aim",
+     3.51
+    ],
+    [
+     "for",
+     3.88
+    ],
+    [
+     "about",
+     4.25
+    ],
+    [
+     "93",
+     4.86
+    ],
+    [
+     "degrees,",
+     5.11
+    ],
+    [
+     "just",
+     5.97
+    ],
+    [
+     "off",
+     6.34
+    ],
+    [
+     "the",
+     6.67
+    ],
+    [
+     "boil.",
+     7.01
+    ]
+   ]
+  },
+  {
+   "i": 2,
+   "start": 7.34,
+   "end": 12.16,
+   "text": "Grind your beans right before brewing, and your cup will taste twice as fresh.",
+   "words": [
+    [
+     "Grind",
+     7.34
+    ],
+    [
+     "your",
+     7.73
+    ],
+    [
+     "beans",
+     8.05
+    ],
+    [
+     "right",
+     8.44
+    ],
+    [
+     "before",
+     8.82
+    ],
+    [
+     "brewing,",
+     9.29
+    ],
+    [
+     "and",
+     9.79
+    ],
+    [
+     "your",
+     10.04
+    ],
+    [
+     "cup",
+     10.37
+    ],
+    [
+     "will",
+     10.62
+    ],
+    [
+     "taste",
+     10.96
+    ],
+    [
+     "twice",
+     11.29
+    ],
+    [
+     "as",
+     11.69
+    ],
+    [
+     "fresh.",
+     11.84
+    ]
+   ]
+  }
+ ],
+ "cutaways": [
+  {
+   "line": 0,
+   "on": "brew coffee",
+   "clip": "broll/globe.mp4"
+  },
+  {
+   "line": 0,
+   "on": "too hot",
+   "clip": "broll/stopwatch.mp4"
+  },
+  {
+   "line": 1,
+   "on": "ninety three degrees",
+   "clip": "broll/chart.mp4"
+  },
+  {
+   "line": 2,
+   "on": "grind",
+   "clip": "broll/upload.jpg"
+  },
+  {
+   "line": 2,
+   "on": "twice as fresh",
+   "clip": "broll/videos.mp4"
+  }
+ ]
+}
