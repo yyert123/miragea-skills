@@ -196,3 +196,4 @@ on making ads without a video model. Thank you to their authors.
 ## License
 
 MIT. Skills follow the open [Agent Skills specification](https://agentskills.io/specification).
+| `jump-cut-editor` | Remove silences, ums and stutters from talking-head videos (AI jump cut editor) |

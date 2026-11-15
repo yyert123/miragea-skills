@@ -20,3 +20,4 @@
 - Captions cost 3 Miragea points per audio second; speech is billed per character; cached re-runs are free.
 - Voice: a saved Miragea voice id, or a public reference clip URL (with consent).
 - Install: `npx skills add yyert123/miragea-skills` or copy a skill folder into your agent's skills directory.
+- jump-cut-editor: remove silences, filler words and repeated words from video/audio using word timing; dry-run shows time saved
