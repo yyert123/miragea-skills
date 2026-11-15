@@ -3,7 +3,7 @@
 Open-source [Agent Skills](https://agentskills.io) that give coding agents real voice and caption
 abilities: narrate a Remotion video in a saved or cloned voice, caption any video into clean SRT/VTT,
 burn TikTok-style captions, clip a long video into YouTube Shorts (an open-source Opus Clip
-alternative), dub a video into another language in your own voice, auto-insert B-roll on the spoken word, and more. Every skill is a folder with a `SKILL.md` and small,
+alternative), dub a video into another language in your own voice, auto-insert B-roll on the spoken word, make UGC-style video ads with hook variations, and more. Every skill is a folder with a `SKILL.md` and small,
 dependency-free Python scripts. Voice and speech recognition run on [Miragea](https://miragea.ai).
 
 ```bash
@@ -25,6 +25,7 @@ export MIRAGEA_API_KEY=your_key                   # https://miragea.ai
 | [video-to-shorts](video-to-shorts/) | AI clip maker / open-source Opus Clip alternative: long podcast, webinar or stream VOD -> captioned 1080x1920 Shorts, TikToks and Reels. Agent picks the moments from a timestamped transcript (no extra LLM key), cuts snap to whole sentences, centre crop or blurred fill, 1-3 word captions, -14 LUFS, optional spoken hook in your cloned voice | `python3 scripts/clips.py render talk.mp4 talk.clips.json` | 2026-11-15 |
 | [video-dubbing](video-dubbing/) | AI dubbing / video translator in your own cloned voice (own-voice dubbing): the agent translates each line within its time budget (no extra LLM key), every line starts on the original, gentle 1.2x max speed-up, music kept in the pauses, translated SRT, -14 LUFS, plus a full-length audio track for YouTube multi-language audio | `python3 scripts/dub.py render talk.mp4 talk.es.dub.json` | 2026-11-15 |
 | [auto-broll](auto-broll/) | Automatic B-roll on the exact spoken word: your agent picks a cutaway for each concrete moment of a talking-head video, podcast or tutorial; cuts land on the word, speaker audio untouched, cover-crop to 16:9 or 9:16, Ken Burns on stills, flash-cut / covered-hook / too-much-B-roll checks, MP4 + CMX 3600 EDL for Premiere and Resolve. Your clips or free Pexels stock. Faceless mode voices a script in your cloned voice first | `python3 scripts/broll.py render talk.mp4 talk.broll.json` | 2026-11-15 |
+| [ugc-video-ads](ugc-video-ads/) | UGC-style video ads without a video model: your agent writes 3-5 hooks and a direct-response body from a product page; every hook x body is voiced in your own cloned voice and rendered as a captioned TikTok / Reels / Shorts / Meta ad (9:16, 4:5, 1:1), captions and price overlays in the safe zones, end card + CTA, 3-second hook budget, ad-claim lint, -14 LUFS, Ads Manager manifest | `python3 scripts/ads.py render ad.json --ratios 9:16,4:5` | 2026-11-15 |
 
 Live demos (captioned videos, a narrated screen recording and a Short): https://huggingface.co/spaces/headvox/miragea-skills
 
@@ -104,6 +105,22 @@ must currently be public URLs (an upload endpoint is planned by Miragea); Englis
 | Faceless video | Voices your script in your own cloned voice, then covers it with B-roll | Stock voices | Separate TTS | Free TTS voices |
 | Setup | Python stdlib + ffmpeg | Upload to their cloud | Desktop app | Node/Remotion or model keys |
 
+
+### UGC video ads vs. the alternatives
+
+| | **ugc-video-ads** | Arcads / Creatify / MakeUGC | Video-model ad skills (Seedance, Veo, Kling) | CapCut / Canva by hand |
+|---|---|---|---|---|
+| Price | Free, MIT; pay-as-you-go voice | Monthly plans, per-video credits | Free skill; you pay per generated clip | Your time |
+| Voice | Your own (or founder's) cloned voice, same in every variant | Stock AI actors and voices | Model voice or a separate TTS | Stock TTS or record yourself |
+| Footage | Your real product photos, clips, screen recordings | AI avatars | Generated video (can drift between shots, garbles on-screen text) | Anything |
+| Hook testing | Every hook x every body in one run; lines cached, a new hook re-bills only itself | Re-generate per variant | Re-generate per variant | Duplicate the project |
+| Platform safe zones, -14 LUFS, 3 s hook check | Built in, measured | Varies | Rarely | Manual |
+| Claim lint (guarantees, health, income, "free", personal attributes) | Free `check` before any spend | No | Some | No |
+| Hand-off | MP4 per ratio + SRT + manifest.csv for Ads Manager naming | MP4 | MP4 | MP4 |
+
+The coined term we use: a **voice-first UGC ad**, real product footage carried by a real (cloned) voice, so
+every variant sounds like the same creator.
+
 ## FAQ
 
 ### How do I A/B test video hooks with AI voiceover?
@@ -138,6 +155,12 @@ Run `python3 auto-broll/scripts/broll.py prep talk.mp4 --library broll/`, let yo
 ### How do I make a faceless YouTube video with B-roll and my own voice?
 Write the script, run `broll.py prep --script script.txt --library broll/ --vertical` (it voices the script in your cloned Miragea voice and times every word), let your agent pick a shot every 2-4 seconds, then render. Each shot runs until the next, so the screen is never empty, and the audio is normalised to -14 LUFS.
 
+### How do I make a UGC-style TikTok ad without filming myself?
+Put a few product photos or clips in a folder, let your agent write `ad.json` (3-5 hooks, a short body, a CTA, an end card), run `python3 ugc-video-ads/scripts/ads.py check ad.json` for free, then `ads.py render ad.json --ratios 9:16,4:5`. Every line is voiced in your own cloned voice, captioned and kept inside the TikTok/Reels safe zones.
+
+### How do I create ad creative variations for testing on Meta or TikTok?
+The ugc-video-ads skill renders every hook with every body (for example 4 hooks x 2 bodies = 8 ads) and names the files `brand_hook-body_9x16.mp4`, with a `manifest.csv` for Ads Manager. Body lines are voiced once and cached, so adding a new hook only pays for that one line.
+
 ## Credits
 
 video-to-shorts is an original rewrite inspired by these MIT-licensed projects (no code copied):
@@ -157,6 +180,12 @@ auto-broll is an original rewrite (no code copied) informed by the B-roll agent 
 [WhiteTowerAI/cut-as-code](https://github.com/WhiteTowerAI/cut-as-code) (MIT) and
 [erduo1998-cell/erduo-broll-loop-engineering](https://github.com/erduo1998-cell/erduo-broll-loop-engineering) (MIT).
 Thank you to their authors for showing that B-roll should land on the word, with the editor keeping the final say.
+
+ugc-video-ads is an original rewrite (no code copied) informed by the UGC ad agent skills of 2026:
+[charlesdove977/UGC-Factory](https://github.com/charlesdove977/UGC-Factory) (MIT),
+[iart-ai/ad-video-skills](https://github.com/iart-ai/ad-video-skills) (MIT) and Ahmad Dogar's
+[reel-studio write-up](https://dev.to/ahmad_dogar_7d098f5e48f72/i-built-a-claude-code-skill-that-makes-video-ads-without-a-video-model-51op)
+on making ads without a video model. Thank you to their authors.
 
 ## Related projects
 
