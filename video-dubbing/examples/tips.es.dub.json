@@ -1,0 +1,36 @@
+{
+  "video": "tips.mp4",
+  "source_language": "en",
+  "target_language": "es",
+  "duration": 18.914,
+  "instructions": "Fill every 'text' with a natural spoken translation of 'source' into the target language. Stay under 'max_chars' so it fits its time slot; keep names, brands and numbers; do not add content. Then run: dub.py check <this file>",
+  "lines": [
+    {
+      "id": 1,
+      "start": 0.96,
+      "end": 4.11,
+      "room": 3.15,
+      "max_chars": 48,
+      "source": "Want to grow your channel in another language?",
+      "text": "¿Quieres hacer crecer tu canal en otro idioma?"
+    },
+    {
+      "id": 2,
+      "start": 4.11,
+      "end": 14.09,
+      "room": 9.98,
+      "max_chars": 154,
+      "source": "Here is the one rule I learned after posting a hundred videos: say the payoff in the first three seconds, then explain how you got there.",
+      "text": "Esta es la regla que aprendí tras publicar cien videos: di el resultado en los primeros tres segundos y luego explica cómo llegaste ahí."
+    },
+    {
+      "id": 3,
+      "start": 14.09,
+      "end": 18.0,
+      "room": 4.82,
+      "max_chars": 74,
+      "source": "Try it on your next upload and watch your retention climb.",
+      "text": "Pruébalo en tu próximo video y verás subir tu retención."
+    }
+  ]
+}
