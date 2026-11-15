@@ -3,7 +3,7 @@
 Open-source [Agent Skills](https://agentskills.io) that give coding agents real voice and caption
 abilities: narrate a Remotion video in a saved or cloned voice, caption any video into clean SRT/VTT,
 burn TikTok-style captions, clip a long video into YouTube Shorts (an open-source Opus Clip
-alternative), and more. Every skill is a folder with a `SKILL.md` and small,
+alternative), dub a video into another language in your own voice, and more. Every skill is a folder with a `SKILL.md` and small,
 dependency-free Python scripts. Voice and speech recognition run on [Miragea](https://miragea.ai).
 
 ```bash
@@ -23,6 +23,7 @@ export MIRAGEA_API_KEY=your_key                   # https://miragea.ai
 | [shorts-voiceover](shorts-voiceover/) | Text script -> finished 1080x1920 Short/Reel/TikTok: voiceover, captions timed from the real speech, Ken Burns images / B-roll / gradients, ducked music, -14 LUFS | `python3 scripts/short.py tips.txt` | 2026-11-10 |
 | [hook-variants](hook-variants/) | A/B test the first 3 seconds: voice 4-6 opening hooks for a Short, TikTok, Reel or ad in the same AI voice, edge silence trimmed, all loudness-matched to -14 LUFS, real spoken length measured with a budget flag | `python3 scripts/hooks.py hooks.txt --budget 3` | 2026-11-15 |
 | [video-to-shorts](video-to-shorts/) | AI clip maker / open-source Opus Clip alternative: long podcast, webinar or stream VOD -> captioned 1080x1920 Shorts, TikToks and Reels. Agent picks the moments from a timestamped transcript (no extra LLM key), cuts snap to whole sentences, centre crop or blurred fill, 1-3 word captions, -14 LUFS, optional spoken hook in your cloned voice | `python3 scripts/clips.py render talk.mp4 talk.clips.json` | 2026-11-15 |
+| [video-dubbing](video-dubbing/) | AI dubbing / video translator in your own cloned voice (own-voice dubbing): the agent translates each line within its time budget (no extra LLM key), every line starts on the original, gentle 1.2x max speed-up, music kept in the pauses, translated SRT, -14 LUFS, plus a full-length audio track for YouTube multi-language audio | `python3 scripts/dub.py render talk.mp4 talk.es.dub.json` | 2026-11-15 |
 
 Live demos (captioned videos, a narrated screen recording and a Short): https://huggingface.co/spaces/headvox/miragea-skills
 
@@ -75,6 +76,18 @@ New skills are added here as they ship. Each one is tested offline (`pytest test
 | Loudness for Shorts | -14 LUFS on every clip | Varies | Usually not normalised | Varies |
 | Framing | Centre crop or blurred fill (no face tracking yet) | Face tracking | Face tracking (most) | Agent-defined |
 
+### Video dubbing vs. the alternatives
+
+| | **video-dubbing** | ElevenLabs Dubbing / HeyGen / Rask | VideoLingo / pyVideoTrans / KrillinAI | YouTube auto-dubbing |
+|---|---|---|---|---|
+| Price | Free, MIT; pay-as-you-go voice + transcription | Per-minute plans, credits expire | Free; you bring LLM + TTS keys (or a GPU) | Free |
+| Voice | Your own cloned Miragea voice, any target language tested (es, ja, zh...) | Clone on paid tiers | Free TTS by default; cloning needs local models + GPU | Generic or limited "expressive" voices |
+| Who translates | Your coding agent, line by line with a per-line character budget (no extra key) | Their model, fixed | Your LLM key | Google, no edits |
+| Fits the timing | Budget before voicing, free `check`, then max 1.2x speed-up and reported drift | Automatic, opaque | Speed-up / re-gen loops | Automatic |
+| Fix one line | Edit one line, re-render: others cached, not billed | Re-dub segment in editor | Re-run pipeline | Not possible |
+| Output | MP4 (picture untouched), SRT, full-length track for YouTube multi-language audio | MP4 / track | MP4 / SRT | Only on YouTube |
+| Setup | Python stdlib + ffmpeg, no GPU, no model download | Upload to their cloud | Conda/Docker, model downloads, GPU recommended | None |
+
 Honest limits: speech recognition is cloud-based (needs a key and internet); reference clips for cloning
 must currently be public URLs (an upload endpoint is planned by Miragea); English is the focus.
 
@@ -100,12 +113,24 @@ OpenCode and others. The scripts also run fine by hand.
 ### How do I turn a long video into YouTube Shorts with AI (free Opus Clip alternative)?
 Run `python3 video-to-shorts/scripts/clips.py moments talk.mp4 --suggest 5`, let your agent read `talk.moments.md` and write `talk.clips.json`, then `python3 video-to-shorts/scripts/clips.py render talk.mp4 talk.clips.json`. You get captioned 1080x1920 clips plus titles; `--dry-run` previews the cuts for free, and a `hook` line per clip is voiced in your own cloned voice.
 
+### How do I dub a YouTube video into Spanish (or any language) in my own voice?
+Run `python3 video-dubbing/scripts/dub.py prep talk.mp4 --to es`, let your agent fill the `text` of each line in `talk.es.dub.json` (it sees a character budget per line), check for free with `dub.py check`, then `dub.py render talk.mp4 talk.es.dub.json`. You get the dubbed MP4 in your cloned voice, Spanish SRT captions, and `talk.es.dub.wav` to upload as an extra YouTube audio track.
+
+### Is there an open-source alternative to ElevenLabs Dubbing or HeyGen video translation?
+Yes: the video-dubbing skill. It runs locally with Python and ffmpeg, uses your own cloned voice through the Miragea API, lets your coding agent do the translation, and costs only pay-as-you-go voice and transcription. It does not do lip-sync.
+
 ## Credits
 
 video-to-shorts is an original rewrite inspired by these MIT-licensed projects (no code copied):
 [SamurAIGPT/AI-Youtube-Shorts-Generator](https://github.com/SamurAIGPT/AI-Youtube-Shorts-Generator),
 [mutonby/openshorts](https://github.com/mutonby/openshorts) and
 [browser-use/video-use](https://github.com/browser-use/video-use). Thank you to their authors.
+
+video-dubbing is an original rewrite inspired by
+[Huanshere/VideoLingo](https://github.com/Huanshere/VideoLingo) (Apache-2.0),
+[jianchang512/pyvideotrans](https://github.com/jianchang512/pyvideotrans) (GPL-3.0) and
+[krillinai/OpenCreator (KrillinAI)](https://github.com/krillinai/OpenCreator) (Apache-2.0); no code was copied.
+Thank you to their authors for showing what creators need from video translation.
 
 ## Related projects
 
