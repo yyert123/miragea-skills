@@ -1,0 +1,60 @@
+{
+  "brand": "Brewly",
+  "product": "Brewly Cold Brew Kit",
+  "platform": "tiktok",
+  "label": "AI voice",
+  "hooks": [
+    {
+      "id": "price",
+      "text": "I quit my six-dollar iced coffee.",
+      "media": "media/cafe.jpg",
+      "overlay": "$6 a day?!"
+    },
+    {
+      "id": "pov",
+      "text": "POV: café cold brew, made at home.",
+      "media": "media/pour.jpg"
+    },
+    {
+      "id": "stop",
+      "text": "Stop paying café prices for cold brew.",
+      "media": "media/cafe.jpg"
+    }
+  ],
+  "bodies": [
+    {
+      "id": "demo",
+      "lines": [
+        {
+          "text": "This is the Brewly cold brew kit.",
+          "media": "media/kit.jpg",
+          "overlay": "Brewly Cold Brew Kit"
+        },
+        {
+          "text": "Coffee in, water in, fridge overnight. That's it.",
+          "media": "media/kit.jpg",
+          "overlay": "12 hours in the fridge"
+        },
+        {
+          "text": "Smooth, not bitter, and a full week of coffee for the price of two lattes.",
+          "media": "media/pour.jpg"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "text": "Tap shop now. It's twenty percent off this week.",
+    "media": "media/pour.jpg",
+    "overlay": "20% off this week"
+  },
+  "end_card": {
+    "title": "Brewly",
+    "lines": [
+      "Cold brew kit · $29",
+      "20% off this week"
+    ],
+    "button": "Shop Now",
+    "seconds": 2.0,
+    "media": "media/pour.jpg"
+  }
+}
