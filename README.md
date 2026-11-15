@@ -3,7 +3,7 @@
 Open-source [Agent Skills](https://agentskills.io) that give coding agents real voice and caption
 abilities: narrate a Remotion video in a saved or cloned voice, caption any video into clean SRT/VTT,
 burn TikTok-style captions, clip a long video into YouTube Shorts (an open-source Opus Clip
-alternative), dub a video into another language in your own voice, and more. Every skill is a folder with a `SKILL.md` and small,
+alternative), dub a video into another language in your own voice, auto-insert B-roll on the spoken word, and more. Every skill is a folder with a `SKILL.md` and small,
 dependency-free Python scripts. Voice and speech recognition run on [Miragea](https://miragea.ai).
 
 ```bash
@@ -24,6 +24,7 @@ export MIRAGEA_API_KEY=your_key                   # https://miragea.ai
 | [hook-variants](hook-variants/) | A/B test the first 3 seconds: voice 4-6 opening hooks for a Short, TikTok, Reel or ad in the same AI voice, edge silence trimmed, all loudness-matched to -14 LUFS, real spoken length measured with a budget flag | `python3 scripts/hooks.py hooks.txt --budget 3` | 2026-11-15 |
 | [video-to-shorts](video-to-shorts/) | AI clip maker / open-source Opus Clip alternative: long podcast, webinar or stream VOD -> captioned 1080x1920 Shorts, TikToks and Reels. Agent picks the moments from a timestamped transcript (no extra LLM key), cuts snap to whole sentences, centre crop or blurred fill, 1-3 word captions, -14 LUFS, optional spoken hook in your cloned voice | `python3 scripts/clips.py render talk.mp4 talk.clips.json` | 2026-11-15 |
 | [video-dubbing](video-dubbing/) | AI dubbing / video translator in your own cloned voice (own-voice dubbing): the agent translates each line within its time budget (no extra LLM key), every line starts on the original, gentle 1.2x max speed-up, music kept in the pauses, translated SRT, -14 LUFS, plus a full-length audio track for YouTube multi-language audio | `python3 scripts/dub.py render talk.mp4 talk.es.dub.json` | 2026-11-15 |
+| [auto-broll](auto-broll/) | Automatic B-roll on the exact spoken word: your agent picks a cutaway for each concrete moment of a talking-head video, podcast or tutorial; cuts land on the word, speaker audio untouched, cover-crop to 16:9 or 9:16, Ken Burns on stills, flash-cut / covered-hook / too-much-B-roll checks, MP4 + CMX 3600 EDL for Premiere and Resolve. Your clips or free Pexels stock. Faceless mode voices a script in your cloned voice first | `python3 scripts/broll.py render talk.mp4 talk.broll.json` | 2026-11-15 |
 
 Live demos (captioned videos, a narrated screen recording and a Short): https://huggingface.co/spaces/headvox/miragea-skills
 
@@ -91,6 +92,18 @@ New skills are added here as they ship. Each one is tested offline (`pytest test
 Honest limits: speech recognition is cloud-based (needs a key and internet); reference clips for cloning
 must currently be public URLs (an upload endpoint is planned by Miragea); English is the focus.
 
+### Auto B-roll vs. the alternatives
+
+| | **auto-broll** | Submagic / Captions / Descript AI B-roll | Manual B-roll in Premiere / CapCut | Other B-roll agent skills |
+|---|---|---|---|---|
+| Price | Free, MIT; pay-as-you-go transcription (voice only in faceless mode) | Monthly plans, B-roll often on higher tiers | Your time | Free; most need extra LLM / video-gen keys |
+| Cut timing | On the exact spoken word (word times from the transcript, 0.1 s lead) | Automatic, coarse | Frame-accurate but by hand | Varies (SRT-line level is common) |
+| Footage | Your own clips and stills, or free Pexels stock | Their stock library | Anything you import | Generated video (paid) or stock |
+| Editorial rules | Built-in checks: hook never covered, no flash cuts, speaker breaks, 20-40% coverage | Opaque | Your judgement | Mostly none |
+| Hand-off to an editor | MP4 + CMX 3600 EDL (Premiere, Resolve, Avid) | Export MP4 only | Native | MP4 only (mostly) |
+| Faceless video | Voices your script in your own cloned voice, then covers it with B-roll | Stock voices | Separate TTS | Free TTS voices |
+| Setup | Python stdlib + ffmpeg | Upload to their cloud | Desktop app | Node/Remotion or model keys |
+
 ## FAQ
 
 ### How do I A/B test video hooks with AI voiceover?
@@ -119,6 +132,12 @@ Run `python3 video-dubbing/scripts/dub.py prep talk.mp4 --to es`, let your agent
 ### Is there an open-source alternative to ElevenLabs Dubbing or HeyGen video translation?
 Yes: the video-dubbing skill. It runs locally with Python and ffmpeg, uses your own cloned voice through the Miragea API, lets your coding agent do the translation, and costs only pay-as-you-go voice and transcription. It does not do lip-sync.
 
+### How do I add B-roll to a talking-head video automatically?
+Run `python3 auto-broll/scripts/broll.py prep talk.mp4 --library broll/`, let your agent add `cutaways` to `talk.broll.json` (each one names the clip and the spoken word it lands on), check for free with `broll.py check`, then `broll.py render talk.mp4 talk.broll.json`. You get the edited MP4 plus an EDL for Premiere Pro or DaVinci Resolve; `pexels:<query>` clips are downloaded with `broll.py fetch`.
+
+### How do I make a faceless YouTube video with B-roll and my own voice?
+Write the script, run `broll.py prep --script script.txt --library broll/ --vertical` (it voices the script in your cloned Miragea voice and times every word), let your agent pick a shot every 2-4 seconds, then render. Each shot runs until the next, so the screen is never empty, and the audio is normalised to -14 LUFS.
+
 ## Credits
 
 video-to-shorts is an original rewrite inspired by these MIT-licensed projects (no code copied):
@@ -131,6 +150,13 @@ video-dubbing is an original rewrite inspired by
 [jianchang512/pyvideotrans](https://github.com/jianchang512/pyvideotrans) (GPL-3.0) and
 [krillinai/OpenCreator (KrillinAI)](https://github.com/krillinai/OpenCreator) (Apache-2.0); no code was copied.
 Thank you to their authors for showing what creators need from video translation.
+
+auto-broll is an original rewrite (no code copied) informed by the B-roll agent skills creators shared in 2026:
+[Barty-Bart/motion-graphics](https://github.com/Barty-Bart/motion-graphics) (motion-broll),
+[Samin12/b-roll-finder](https://github.com/Samin12/b-roll-finder),
+[WhiteTowerAI/cut-as-code](https://github.com/WhiteTowerAI/cut-as-code) (MIT) and
+[erduo1998-cell/erduo-broll-loop-engineering](https://github.com/erduo1998-cell/erduo-broll-loop-engineering) (MIT).
+Thank you to their authors for showing that B-roll should land on the word, with the editor keeping the final say.
 
 ## Related projects
 
