@@ -1,8 +1,9 @@
-# Miragea Skills: voiceover, captions and video Agent Skills for Claude Code, Codex and Cursor
+# Miragea Skills: AI voiceover, captions and video-editing Agent Skills for Claude Code, Codex and Cursor
 
 Open-source [Agent Skills](https://agentskills.io) that give coding agents real voice and caption
 abilities: narrate a Remotion video in a saved or cloned voice, caption any video into clean SRT/VTT,
-burn TikTok-style captions, and more. Every skill is a folder with a `SKILL.md` and small,
+burn TikTok-style captions, clip a long video into YouTube Shorts (an open-source Opus Clip
+alternative), and more. Every skill is a folder with a `SKILL.md` and small,
 dependency-free Python scripts. Voice and speech recognition run on [Miragea](https://miragea.ai).
 
 ```bash
@@ -21,6 +22,7 @@ export MIRAGEA_API_KEY=your_key                   # https://miragea.ai
 | [screen-recording-voiceover](screen-recording-voiceover/) | Silent screen recording -> narrated MP4: finds the steps, voices one line per step, starts each line on its step, auto speed-up / freeze-frame when a line runs long, ducked music, captions | `python3 scripts/voiceover.py demo.mp4 demo.script.txt` | 2026-11-10 |
 | [shorts-voiceover](shorts-voiceover/) | Text script -> finished 1080x1920 Short/Reel/TikTok: voiceover, captions timed from the real speech, Ken Burns images / B-roll / gradients, ducked music, -14 LUFS | `python3 scripts/short.py tips.txt` | 2026-11-10 |
 | [hook-variants](hook-variants/) | A/B test the first 3 seconds: voice 4-6 opening hooks for a Short, TikTok, Reel or ad in the same AI voice, edge silence trimmed, all loudness-matched to -14 LUFS, real spoken length measured with a budget flag | `python3 scripts/hooks.py hooks.txt --budget 3` | 2026-11-15 |
+| [video-to-shorts](video-to-shorts/) | AI clip maker / open-source Opus Clip alternative: long podcast, webinar or stream VOD -> captioned 1080x1920 Shorts, TikToks and Reels. Agent picks the moments from a timestamped transcript (no extra LLM key), cuts snap to whole sentences, centre crop or blurred fill, 1-3 word captions, -14 LUFS, optional spoken hook in your cloned voice | `python3 scripts/clips.py render talk.mp4 talk.clips.json` | 2026-11-15 |
 
 Live demos (captioned videos, a narrated screen recording and a Short): https://huggingface.co/spaces/headvox/miragea-skills
 
@@ -61,6 +63,18 @@ New skills are added here as they ship. Each one is tested offline (`pytest test
 | Loudness for Shorts | -14 LUFS automatic | Not normalized | Not normalized | Varies |
 | Re-run after one edit | Only changed scenes re-voiced | Full re-render and re-voice | Manual | Re-generate |
 
+### Video to Shorts vs. the alternatives
+
+| | **video-to-shorts** | Opus Clip / Klap / Vizard | AI-Youtube-Shorts-Generator / OpenShorts / ClipMint | video-use |
+|---|---|---|---|---|
+| Price | Free, MIT; pay-as-you-go transcription | $15-29+/month, minute credits, watermark on free tier | Free; you pay your LLM / GPU | Free; you pay your LLM |
+| Who picks the moments | Your coding agent reads the timestamped transcript (no extra LLM key); offline keyword draft included | Their model (virality score) | GPT / Gemini / local LLM key | Claude Code |
+| Cuts mid-sentence | Never: cuts snap to sentence edges | Sometimes | Sometimes | Word-level cuts |
+| Setup | Python stdlib + ffmpeg, no GPU, no model download | Upload to their cloud | Docker / Whisper model, GPU recommended | Python + ElevenLabs Scribe key |
+| Spoken hook in your own voice | Yes (Miragea cloned voice), frame held while it plays | Text hook only | No | No |
+| Loudness for Shorts | -14 LUFS on every clip | Varies | Usually not normalised | Varies |
+| Framing | Centre crop or blurred fill (no face tracking yet) | Face tracking | Face tracking (most) | Agent-defined |
+
 Honest limits: speech recognition is cloud-based (needs a key and internet); reference clips for cloning
 must currently be public URLs (an upload endpoint is planned by Miragea); English is the focus.
 
@@ -82,6 +96,16 @@ licensed to use.
 
 **Which agents work?** Any agent that reads `SKILL.md` skills: Claude Code, Codex CLI, Cursor, Gemini CLI,
 OpenCode and others. The scripts also run fine by hand.
+
+### How do I turn a long video into YouTube Shorts with AI (free Opus Clip alternative)?
+Run `python3 video-to-shorts/scripts/clips.py moments talk.mp4 --suggest 5`, let your agent read `talk.moments.md` and write `talk.clips.json`, then `python3 video-to-shorts/scripts/clips.py render talk.mp4 talk.clips.json`. You get captioned 1080x1920 clips plus titles; `--dry-run` previews the cuts for free, and a `hook` line per clip is voiced in your own cloned voice.
+
+## Credits
+
+video-to-shorts is an original rewrite inspired by these MIT-licensed projects (no code copied):
+[SamurAIGPT/AI-Youtube-Shorts-Generator](https://github.com/SamurAIGPT/AI-Youtube-Shorts-Generator),
+[mutonby/openshorts](https://github.com/mutonby/openshorts) and
+[browser-use/video-use](https://github.com/browser-use/video-use). Thank you to their authors.
 
 ## Related projects
 

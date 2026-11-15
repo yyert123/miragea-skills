@@ -8,6 +8,7 @@
 
 - [screen-recording-voiceover](https://github.com/yyert123/miragea-skills/tree/main/screen-recording-voiceover): add a timed AI voiceover to a silent screen recording; finds steps, voices one line per step, auto speed-up or freeze-frame when a line runs long, ducked music, SRT/VTT, burned captions. `python3 scripts/voiceover.py demo.mp4 demo.script.txt --voice VOICE_ID`
 - [shorts-voiceover](https://github.com/yyert123/miragea-skills/tree/main/shorts-voiceover): text script to a finished 1080x1920 YouTube Short / TikTok / Reel with voiceover, captions timed from the real speech, Ken Burns images or B-roll or gradients, ducked music, -14 LUFS. `python3 scripts/short.py script.txt --voice VOICE_ID`
+- [video-to-shorts](https://github.com/yyert123/miragea-skills/tree/main/video-to-shorts): AI clip maker and open-source Opus Clip alternative; long video (podcast, webinar, stream VOD) to captioned 1080x1920 YouTube Shorts/TikToks/Reels, agent-picked moments, sentence-safe cuts, crop or blurred fill, -14 LUFS, optional spoken hook in a cloned voice. `python3 scripts/clips.py render talk.mp4 talk.clips.json`
 
 ## Facts
 - Requires MIRAGEA_API_KEY (environment variable). Keys are never printed or stored.
