@@ -20,6 +20,7 @@ export MIRAGEA_API_KEY=your_key                   # https://miragea.ai
 | [remotion-narration](remotion-narration/) | Script -> one MP3 per scene, measured durations -> `durationInFrames`, word-level Remotion `Caption[]`, SRT | `python3 scripts/narrate.py script.md --voice ID` | 2026-11-08 |
 | [screen-recording-voiceover](screen-recording-voiceover/) | Silent screen recording -> narrated MP4: finds the steps, voices one line per step, starts each line on its step, auto speed-up / freeze-frame when a line runs long, ducked music, captions | `python3 scripts/voiceover.py demo.mp4 demo.script.txt` | 2026-11-10 |
 | [shorts-voiceover](shorts-voiceover/) | Text script -> finished 1080x1920 Short/Reel/TikTok: voiceover, captions timed from the real speech, Ken Burns images / B-roll / gradients, ducked music, -14 LUFS | `python3 scripts/short.py tips.txt` | 2026-11-10 |
+| [hook-variants](hook-variants/) | A/B test the first 3 seconds: voice 4-6 opening hooks for a Short, TikTok, Reel or ad in the same AI voice, edge silence trimmed, all loudness-matched to -14 LUFS, real spoken length measured with a budget flag | `python3 scripts/hooks.py hooks.txt --budget 3` | 2026-11-15 |
 
 Live demos (captioned videos, a narrated screen recording and a Short): https://huggingface.co/spaces/headvox/miragea-skills
 
@@ -64,6 +65,10 @@ Honest limits: speech recognition is cloud-based (needs a key and internet); ref
 must currently be public URLs (an upload endpoint is planned by Miragea); English is the focus.
 
 ## FAQ
+
+### How do I A/B test video hooks with AI voiceover?
+Put one hook per line in `hooks.txt` and run `python3 hook-variants/scripts/hooks.py hooks.txt --budget 3 --voice VOICE_ID`. Every variant is voiced in the same voice, trimmed and loudness-matched, so you compare hooks fairly. `--dry-run` estimates lengths for free.
+
 
 **Do I need a GPU?** No. All heavy lifting is done by the Miragea API; scripts are standard-library Python.
 
