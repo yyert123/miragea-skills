@@ -159,3 +159,16 @@ def test_article_to_video_renders_with_stub_voice(tmp_path, monkeypatch):
     out = tmp_path / "a.mp4"
     assert m.main([str(ROOT / "article-to-video/examples/post.md"), "-o", str(out), "--voice", "A1"]) == 0
     assert out.stat().st_size > 1000 and out.with_suffix(".srt").exists()
+
+
+def test_voice_patch_plan_and_cmd():
+    m = load("voice-patch", "voicepatch")
+    ws = [{"text": "Our", "start": 0.0, "end": 0.3}, {"text": "price", "start": 0.35, "end": 0.7},
+          {"text": "ten", "start": 0.8, "end": 1.0}, {"text": "dollars.", "start": 1.05, "end": 1.5},
+          {"text": "Thanks", "start": 1.52, "end": 2.0}]
+    p = m.plan(ws, "Ten dollars", total=2.0)
+    assert 0.7 <= p["start"] <= 0.8 and 1.5 <= p["end"] <= 1.52
+    import pytest
+    with pytest.raises(ValueError):
+        m.plan(ws, "twenty")
+    assert "concat=n=3" in " ".join(m.splice_cmd("a.mp4", "p.wav", 0.8, 1.5, "o.mp4", True))
