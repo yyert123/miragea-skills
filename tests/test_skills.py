@@ -172,3 +172,15 @@ def test_voice_patch_plan_and_cmd():
     with pytest.raises(ValueError):
         m.plan(ws, "twenty")
     assert "concat=n=3" in " ".join(m.splice_cmd("a.mp4", "p.wav", 0.8, 1.5, "o.mp4", True))
+
+
+def test_client_rejects_ref_url_with_clear_hint(tmp_path, monkeypatch):
+    import importlib.util, pathlib
+    p = pathlib.Path(__file__).resolve().parents[1] / "voice-patch/scripts/miragea_client.py"
+    spec = importlib.util.spec_from_file_location("mc", p); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    monkeypatch.delenv("MIRAGEA_ACTOR_ID", raising=False)
+    c = m.Client(api_key="x")
+    import pytest
+    with pytest.raises(m.MirageaError) as e:
+        c.speak("hi", tmp_path / "a.wav", reference_audio_url="https://x/y.wav")
+    assert "actor_id" in str(e.value) and "/v1/actors" in str(e.value)
