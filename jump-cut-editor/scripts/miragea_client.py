@@ -14,7 +14,7 @@ import urllib.request
 import uuid
 from pathlib import Path
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 DEFAULT_BASE = "https://miragea.ai/v1"
 # Miragea sits behind Cloudflare, which rejects default library user agents.
@@ -120,15 +120,19 @@ class Client:
               reference_audio_url: str | None = None, reference_text: str | None = None,
               model: str = "expressive", fmt: str = "wav", speed: float | None = None) -> Path:
         """Generate speech in a saved voice (actor_id) or a cloned reference voice; saves to out_path."""
-        if not (actor_id or reference_audio_url):
-            raise MirageaError("No voice given.", "Pass a Miragea voice id (--voice) or a public reference URL (--ref-url).")
+        actor_id = actor_id or os.environ.get("MIRAGEA_ACTOR_ID") or None
+        if reference_audio_url and not actor_id:
+            raise MirageaError(
+                "Reference URLs (--ref-url) are no longer accepted by the Miragea API; speech needs a saved voice (actor_id).",
+                "Save your own voice once: POST https://miragea.ai/v1/actors (multipart: file=@your_3-60s_clip.wav, "
+                "request='{\"name\":\"MyVoice\",\"language\":\"en\",\"visibility\":\"private\"}'), or add it at https://miragea.ai. "
+                "Then run with --voice ACTOR_ID or export MIRAGEA_ACTOR_ID=ACTOR_ID.",
+                code="actor_required")
+        if not actor_id:
+            raise MirageaError("No voice given.", "Pass --voice ACTOR_ID or export MIRAGEA_ACTOR_ID (list yours: GET https://miragea.ai/v1/actors).",
+                               code="actor_required")
         payload: dict = {"text": text, "model": model, "format": fmt}
-        if actor_id:
-            payload["actor_id"] = actor_id
-        else:
-            payload["reference_audio_url"] = reference_audio_url
-            if reference_text:
-                payload["reference_text"] = reference_text
+        payload["actor_id"] = actor_id
         if speed:
             payload["speed"] = speed
         task = self._request("POST", "/audio/generations", json.dumps(payload).encode(), "application/json",
