@@ -1,0 +1,91 @@
+<!doctype html>
+<!-- miragea-narration -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>script</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+    :root { --ground:#0b0d12; --ink:#f5f7fb; --accent:#7cf0c9; --dim:#7b8499; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { width:1920px; height:1080px; overflow:hidden; background:var(--ground); }
+    #root { position:relative; width:1920px; height:1080px; font-family:Inter, "Helvetica Neue", Arial, sans-serif; color:var(--ink); }
+    .scene { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:0 153px; gap:24px; }
+    .scene::before { content:attr(data-n); display:block; margin-bottom:24px; color:var(--accent); font-size:40px; letter-spacing:.12em; }
+    .scene { font-size:84px; line-height:1.05; letter-spacing:-.02em; }
+    .caption { position:absolute; left:153px; right:153px; bottom:108px; text-align:center; font-size:40px; font-weight:600; line-height:1.3; }
+    .caption .w { color:var(--dim); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22.836" data-width="1920" data-height="1080">
+      <h2 id="scene-01" class="clip scene" data-n="01" data-start="0.0" data-duration="6.884" data-track-index="1">Write HTML</h2>
+      <audio id="vo-01" data-start="0.0" data-duration="6.384" data-track-index="3" data-volume="1" src="assets/narration/scene-01.mp3"></audio>
+      <p id="cap-01-0" class="clip caption" data-start="0.08" data-duration="3.549" data-track-index="2"><span class="w" id="cap-01-0-0">HyperFrames</span> <span class="w" id="cap-01-0-1">turns</span> <span class="w" id="cap-01-0-2">plain</span> <span class="w" id="cap-01-0-3">HTML</span> <span class="w" id="cap-01-0-4">into</span> <span class="w" id="cap-01-0-5">video.</span></p>
+      <p id="cap-01-1" class="clip caption" data-start="3.579" data-duration="3.305" data-track-index="2"><span class="w" id="cap-01-1-0">Your</span> <span class="w" id="cap-01-1-1">agent</span> <span class="w" id="cap-01-1-2">already</span> <span class="w" id="cap-01-1-3">knows</span> <span class="w" id="cap-01-1-4">how</span> <span class="w" id="cap-01-1-5">to</span> <span class="w" id="cap-01-1-6">write</span> <span class="w" id="cap-01-1-7">it.</span></p>
+      <h2 id="scene-02" class="clip scene" data-n="02" data-start="6.884" data-duration="8.42" data-track-index="1">Add a voice</h2>
+      <audio id="vo-02" data-start="6.884" data-duration="7.92" data-track-index="3" data-volume="1" src="assets/narration/scene-02.mp3"></audio>
+      <p id="cap-02-0" class="clip caption" data-start="6.884" data-duration="2.718" data-track-index="2"><span class="w" id="cap-02-0-0">Miragea</span> <span class="w" id="cap-02-0-1">speaks</span> <span class="w" id="cap-02-0-2">every</span> <span class="w" id="cap-02-0-3">scene</span> <span class="w" id="cap-02-0-4">in</span> <span class="w" id="cap-02-0-5">your</span></p>
+      <p id="cap-02-1" class="clip caption" data-start="9.602" data-duration="2.696" data-track-index="2"><span class="w" id="cap-02-1-0">own</span> <span class="w" id="cap-02-1-1">cloned</span> <span class="w" id="cap-02-1-2">voice,</span> <span class="w" id="cap-02-1-3">and</span> <span class="w" id="cap-02-1-4">measures</span> <span class="w" id="cap-02-1-5">how</span></p>
+      <p id="cap-02-2" class="clip caption" data-start="12.298" data-duration="3.006" data-track-index="2"><span class="w" id="cap-02-2-0">long</span> <span class="w" id="cap-02-2-1">each</span> <span class="w" id="cap-02-2-2">line</span> <span class="w" id="cap-02-2-3">really</span> <span class="w" id="cap-02-2-4">takes.</span></p>
+      <h2 id="scene-03" class="clip scene" data-n="03" data-start="15.304" data-duration="7.532" data-track-index="1">Render</h2>
+      <audio id="vo-03" data-start="15.304" data-duration="7.032" data-track-index="3" data-volume="1" src="assets/narration/scene-03.mp3"></audio>
+      <p id="cap-03-0" class="clip caption" data-start="15.304" data-duration="2.787" data-track-index="2"><span class="w" id="cap-03-0-0">Scenes,</span> <span class="w" id="cap-03-0-1">captions</span> <span class="w" id="cap-03-0-2">and</span> <span class="w" id="cap-03-0-3">audio</span> <span class="w" id="cap-03-0-4">all</span> <span class="w" id="cap-03-0-5">line</span></p>
+      <p id="cap-03-1" class="clip caption" data-start="18.091" data-duration="2.835" data-track-index="2"><span class="w" id="cap-03-1-0">up,</span> <span class="w" id="cap-03-1-1">so</span> <span class="w" id="cap-03-1-2">one</span> <span class="w" id="cap-03-1-3">command</span> <span class="w" id="cap-03-1-4">gives</span> <span class="w" id="cap-03-1-5">you</span> <span class="w" id="cap-03-1-6">a</span> <span class="w" id="cap-03-1-7">finished</span></p>
+      <p id="cap-03-2" class="clip caption" data-start="20.926" data-duration="1.91" data-track-index="2"><span class="w" id="cap-03-2-0">narrated</span> <span class="w" id="cap-03-2-1">video.</span></p>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#cap-01-0-0", { color: "#f5f7fb" }, 0.08);
+      tl.set("#cap-01-0-1", { color: "#f5f7fb" }, 1.131);
+      tl.set("#cap-01-0-2", { color: "#f5f7fb" }, 1.609);
+      tl.set("#cap-01-0-3", { color: "#f5f7fb" }, 2.087);
+      tl.set("#cap-01-0-4", { color: "#f5f7fb" }, 2.469);
+      tl.set("#cap-01-0-5", { color: "#f5f7fb" }, 2.844);
+      tl.set("#cap-01-1-0", { color: "#f5f7fb" }, 3.579);
+      tl.set("#cap-01-1-1", { color: "#f5f7fb" }, 3.888);
+      tl.set("#cap-01-1-2", { color: "#f5f7fb" }, 4.275);
+      tl.set("#cap-01-1-3", { color: "#f5f7fb" }, 4.817);
+      tl.set("#cap-01-1-4", { color: "#f5f7fb" }, 5.204);
+      tl.set("#cap-01-1-5", { color: "#f5f7fb" }, 5.436);
+      tl.set("#cap-01-1-6", { color: "#f5f7fb" }, 5.513);
+      tl.set("#cap-01-1-7", { color: "#f5f7fb" }, 6.052);
+      tl.set("#cap-02-0-0", { color: "#f5f7fb" }, 6.884);
+      tl.set("#cap-02-0-1", { color: "#f5f7fb" }, 7.562);
+      tl.set("#cap-02-0-2", { color: "#f5f7fb" }, 8.144);
+      tl.set("#cap-02-0-3", { color: "#f5f7fb" }, 8.629);
+      tl.set("#cap-02-0-4", { color: "#f5f7fb" }, 9.113);
+      tl.set("#cap-02-0-5", { color: "#f5f7fb" }, 9.307);
+      tl.set("#cap-02-1-0", { color: "#f5f7fb" }, 9.602);
+      tl.set("#cap-02-1-1", { color: "#f5f7fb" }, 9.9);
+      tl.set("#cap-02-1-2", { color: "#f5f7fb" }, 10.496);
+      tl.set("#cap-02-1-3", { color: "#f5f7fb" }, 10.992);
+      tl.set("#cap-02-1-4", { color: "#f5f7fb" }, 11.29);
+      tl.set("#cap-02-1-5", { color: "#f5f7fb" }, 11.984);
+      tl.set("#cap-02-2-0", { color: "#f5f7fb" }, 12.298);
+      tl.set("#cap-02-2-1", { color: "#f5f7fb" }, 12.716);
+      tl.set("#cap-02-2-2", { color: "#f5f7fb" }, 13.134);
+      tl.set("#cap-02-2-3", { color: "#f5f7fb" }, 13.551);
+      tl.set("#cap-02-2-4", { color: "#f5f7fb" }, 14.178);
+      tl.set("#cap-03-0-0", { color: "#f5f7fb" }, 15.304);
+      tl.set("#cap-03-0-1", { color: "#f5f7fb" }, 15.908);
+      tl.set("#cap-03-0-2", { color: "#f5f7fb" }, 16.714);
+      tl.set("#cap-03-0-3", { color: "#f5f7fb" }, 17.016);
+      tl.set("#cap-03-0-4", { color: "#f5f7fb" }, 17.519);
+      tl.set("#cap-03-0-5", { color: "#f5f7fb" }, 17.721);
+      tl.set("#cap-03-1-0", { color: "#f5f7fb" }, 18.091);
+      tl.set("#cap-03-1-1", { color: "#f5f7fb" }, 18.277);
+      tl.set("#cap-03-1-2", { color: "#f5f7fb" }, 18.462);
+      tl.set("#cap-03-1-3", { color: "#f5f7fb" }, 18.74);
+      tl.set("#cap-03-1-4", { color: "#f5f7fb" }, 19.388);
+      tl.set("#cap-03-1-5", { color: "#f5f7fb" }, 19.851);
+      tl.set("#cap-03-1-6", { color: "#f5f7fb" }, 20.042);
+      tl.set("#cap-03-1-7", { color: "#f5f7fb" }, 20.14);
+      tl.set("#cap-03-2-0", { color: "#f5f7fb" }, 20.926);
+      tl.set("#cap-03-2-1", { color: "#f5f7fb" }, 21.711);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

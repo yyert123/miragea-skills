@@ -1,0 +1,31 @@
+1
+00:00:00,080 --> 00:00:03,579
+HyperFrames turns plain HTML into video.
+
+2
+00:00:03,579 --> 00:00:06,160
+Your agent already knows how to write it.
+
+3
+00:00:06,884 --> 00:00:09,503
+Miragea speaks every scene in your
+
+4
+00:00:09,602 --> 00:00:12,193
+own cloned voice, and measures how
+
+5
+00:00:12,298 --> 00:00:14,596
+long each line really takes.
+
+6
+00:00:15,304 --> 00:00:17,999
+Scenes, captions and audio all line
+
+7
+00:00:18,091 --> 00:00:20,828
+up, so one command gives you a finished
+
+8
+00:00:20,926 --> 00:00:22,104
+narrated video.

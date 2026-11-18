@@ -1,0 +1,286 @@
+{
+  "totalSec": 22.836,
+  "width": 1920,
+  "height": 1080,
+  "dryRun": false,
+  "engine": "Miragea https://miragea.ai",
+  "scenes": [
+    {
+      "id": "scene-01",
+      "index": 1,
+      "title": "Write HTML",
+      "text": "HyperFrames turns plain HTML into video. Your agent already knows how to write it.",
+      "file": "scene-01.mp3",
+      "hash": "86a9cc53856ca1bb",
+      "start": 0.0,
+      "audio": 6.384,
+      "durationSec": 6.384,
+      "span": 6.884,
+      "words": [
+        {
+          "text": "HyperFrames",
+          "start": 0.08,
+          "end": 1.036
+        },
+        {
+          "text": "turns",
+          "start": 1.131,
+          "end": 1.513
+        },
+        {
+          "text": "plain",
+          "start": 1.609,
+          "end": 1.991
+        },
+        {
+          "text": "HTML",
+          "start": 2.087,
+          "end": 2.373
+        },
+        {
+          "text": "into",
+          "start": 2.469,
+          "end": 2.66
+        },
+        {
+          "text": "video.",
+          "start": 2.844,
+          "end": 3.579
+        },
+        {
+          "text": "Your",
+          "start": 3.579,
+          "end": 3.811
+        },
+        {
+          "text": "agent",
+          "start": 3.888,
+          "end": 4.198
+        },
+        {
+          "text": "already",
+          "start": 4.275,
+          "end": 4.739
+        },
+        {
+          "text": "knows",
+          "start": 4.817,
+          "end": 5.126
+        },
+        {
+          "text": "how",
+          "start": 5.204,
+          "end": 5.358
+        },
+        {
+          "text": "to",
+          "start": 5.436,
+          "end": 5.513
+        },
+        {
+          "text": "write",
+          "start": 5.513,
+          "end": 5.944
+        },
+        {
+          "text": "it.",
+          "start": 6.052,
+          "end": 6.16
+        }
+      ]
+    },
+    {
+      "id": "scene-02",
+      "index": 2,
+      "title": "Add a voice",
+      "text": "Miragea speaks every scene in your own cloned voice, and measures how long each line really takes.",
+      "file": "scene-02.mp3",
+      "hash": "9d7df6f5cfa323b8",
+      "start": 6.884,
+      "audio": 7.92,
+      "durationSec": 7.92,
+      "span": 8.42,
+      "words": [
+        {
+          "text": "Miragea",
+          "start": 0.0,
+          "end": 0.582
+        },
+        {
+          "text": "speaks",
+          "start": 0.678,
+          "end": 1.163
+        },
+        {
+          "text": "every",
+          "start": 1.26,
+          "end": 1.648
+        },
+        {
+          "text": "scene",
+          "start": 1.745,
+          "end": 2.132
+        },
+        {
+          "text": "in",
+          "start": 2.229,
+          "end": 2.326
+        },
+        {
+          "text": "your",
+          "start": 2.423,
+          "end": 2.619
+        },
+        {
+          "text": "own",
+          "start": 2.718,
+          "end": 2.917
+        },
+        {
+          "text": "cloned",
+          "start": 3.016,
+          "end": 3.512
+        },
+        {
+          "text": "voice,",
+          "start": 3.612,
+          "end": 4.009
+        },
+        {
+          "text": "and",
+          "start": 4.108,
+          "end": 4.306
+        },
+        {
+          "text": "measures",
+          "start": 4.406,
+          "end": 5.1
+        },
+        {
+          "text": "how",
+          "start": 5.1,
+          "end": 5.309
+        },
+        {
+          "text": "long",
+          "start": 5.414,
+          "end": 5.727
+        },
+        {
+          "text": "each",
+          "start": 5.832,
+          "end": 6.145
+        },
+        {
+          "text": "line",
+          "start": 6.25,
+          "end": 6.563
+        },
+        {
+          "text": "really",
+          "start": 6.667,
+          "end": 7.19
+        },
+        {
+          "text": "takes.",
+          "start": 7.294,
+          "end": 7.712
+        }
+      ]
+    },
+    {
+      "id": "scene-03",
+      "index": 3,
+      "title": "Render",
+      "text": "Scenes, captions and audio all line up, so one command gives you a finished narrated video.",
+      "file": "scene-03.mp3",
+      "hash": "d31412f17a19f763",
+      "start": 15.304,
+      "audio": 7.032,
+      "durationSec": 7.032,
+      "span": 7.532,
+      "words": [
+        {
+          "text": "Scenes,",
+          "start": 0.0,
+          "end": 0.503
+        },
+        {
+          "text": "captions",
+          "start": 0.604,
+          "end": 1.309
+        },
+        {
+          "text": "and",
+          "start": 1.41,
+          "end": 1.611
+        },
+        {
+          "text": "audio",
+          "start": 1.712,
+          "end": 2.115
+        },
+        {
+          "text": "all",
+          "start": 2.215,
+          "end": 2.417
+        },
+        {
+          "text": "line",
+          "start": 2.417,
+          "end": 2.695
+        },
+        {
+          "text": "up,",
+          "start": 2.787,
+          "end": 2.88
+        },
+        {
+          "text": "so",
+          "start": 2.973,
+          "end": 3.065
+        },
+        {
+          "text": "one",
+          "start": 3.158,
+          "end": 3.343
+        },
+        {
+          "text": "command",
+          "start": 3.436,
+          "end": 3.992
+        },
+        {
+          "text": "gives",
+          "start": 4.084,
+          "end": 4.455
+        },
+        {
+          "text": "you",
+          "start": 4.547,
+          "end": 4.64
+        },
+        {
+          "text": "a",
+          "start": 4.738,
+          "end": 4.818
+        },
+        {
+          "text": "finished",
+          "start": 4.836,
+          "end": 5.524
+        },
+        {
+          "text": "narrated",
+          "start": 5.622,
+          "end": 6.309
+        },
+        {
+          "text": "video.",
+          "start": 6.407,
+          "end": 6.8
+        }
+      ]
+    }
+  ]
+}
