@@ -205,3 +205,37 @@ def test_dub_batch_langs_and_status(tmp_path):
     v = tmp_path / "a.mp4"
     (tmp_path / "a.es.dub.json").write_text('{"lines":[{"text":"hola"},{"text":""}]}')
     assert m.status(v, ["es", "pt"]) == [("es", "needs translation", 1, 2), ("pt", "missing", 0, 0)]
+
+
+def test_animated_captions_ass_events_and_colours(tmp_path):
+    m = load("animated-captions", "animated_captions")
+    assert m.ass_colour("FFE000") == "&H0000E0FF&"
+    with pytest.raises(ValueError):
+        m.ass_colour("yellow")
+    cues = load("video-captions", "cues")
+    ws = cues.words(SAMPLE)
+    ass = m.build_ass(ws, "hormozi", 1080, 1920)
+    events = [l for l in ass.splitlines() if l.startswith("Dialogue:")]
+    assert len(events) == len(ws) and "PlayResX: 1080" in ass
+    spans = []
+    for l in events:
+        f = l.split(",", 9)
+        spans.append((f[1], f[2]))
+    assert all(a <= b for a, b in spans)
+    # every chunk fits the width budget (max_chars) and breaks after sentence ends
+    for ch in m.chunk(ws, 3, 14):
+        assert 1 <= len(ch) <= 3
+        assert sum(len(w["text"]) for w in ch) + len(ch) - 1 <= 14 or len(ch) == 1
+    for name in ("karaoke", "highlighter", "minimal"):
+        assert "Dialogue:" in m.build_ass(ws, name, 1920, 1080)
+
+
+def test_animated_captions_cli_offline(tmp_path):
+    m = load("animated-captions", "animated_captions")
+    src = tmp_path / "a.wav"
+    src.write_bytes(b"x")
+    tr = ROOT / "video-captions" / "examples" / "transcript.json"
+    assert m.main([str(src), "--transcript", str(tr), "--preset", "karaoke", "--size", "1080x1920"]) == 0
+    assert (tmp_path / "a.ass").exists() and (tmp_path / "a.words.json").exists()
+    with pytest.raises(SystemExit):
+        m.main([str(src), "--transcript", str(tr), "--active", "nope", "--size", "1080x1920"])
