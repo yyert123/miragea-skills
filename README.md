@@ -199,3 +199,4 @@ MIT. Skills follow the open [Agent Skills specification](https://agentskills.io/
 | `jump-cut-editor` | Remove silences, ums and stutters from talking-head videos (AI jump cut editor) |
 | `voice-patch` | Fix a wrong word or number in a finished video by re-speaking it in your cloned voice (AI overdub) |
 | `slides-to-video` | Turn slides plus speaker notes into a narrated MP4 + SRT in your cloned voice (PowerPoint/PDF to video) |
+| `dub-batch` | One video into many languages (Spanish, Portuguese, Hindi...) in your cloned voice, one command |
