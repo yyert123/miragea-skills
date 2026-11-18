@@ -2,6 +2,7 @@
 import importlib.util
 import json
 import sys
+import pytest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -194,3 +195,13 @@ def test_slides_to_video_notes_and_order(tmp_path):
         (tmp_path / n).write_bytes(b"x")
     assert [p.name for p in m.find_slides(tmp_path)] == ["slide-1.jpg", "slide-2.png", "slide-10.png"]
     assert m.main([str(tmp_path), "--notes", str(ROOT / "slides-to-video/examples/notes.md"), "--dry-run"]) == 0
+
+
+def test_dub_batch_langs_and_status(tmp_path):
+    m = load("dub-batch", "dub_batch")
+    assert m.parse_langs("es, pt,es") == ["es", "pt"]
+    with pytest.raises(SystemExit):
+        m.parse_langs("xx")
+    v = tmp_path / "a.mp4"
+    (tmp_path / "a.es.dub.json").write_text('{"lines":[{"text":"hola"},{"text":""}]}')
+    assert m.status(v, ["es", "pt"]) == [("es", "needs translation", 1, 2), ("pt", "missing", 0, 0)]
