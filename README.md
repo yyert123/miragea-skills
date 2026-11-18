@@ -201,3 +201,4 @@ MIT. Skills follow the open [Agent Skills specification](https://agentskills.io/
 | `slides-to-video` | Turn slides plus speaker notes into a narrated MP4 + SRT in your cloned voice (PowerPoint/PDF to video) |
 | `dub-batch` | One video into many languages (Spanish, Portuguese, Hindi...) in your cloned voice, one command |
 | `hyperframes-narration` | Voiceover for HeyGen HyperFrames (HTML to video): scene audio in your cloned voice, word-timed captions, a ready composition that lints clean |
+| `animated-captions` | Word-by-word animated captions (Hormozi highlight, karaoke, highlighter, minimal) as .ass + burned vertical MP4; ffmpeg only, no paid caption app |

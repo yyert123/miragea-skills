@@ -25,3 +25,4 @@
 - slides-to-video: slide images + notes to narrated MP4 with SRT, cloned voice
 - dub-batch: batch multi-language AI dubbing of one video in cloned voice
 - hyperframes-narration: script to per-scene cloned-voice narration + HyperFrames HTML composition with timed captions (HeyGen HyperFrames voiceover)
+- animated-captions: word-highlight animated captions (Hormozi / karaoke / highlighter styles) for TikTok, Reels and Shorts, .ass + burned MP4 via Miragea ASR and ffmpeg
