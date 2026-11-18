@@ -22,3 +22,4 @@
 - Install: `npx skills add yyert123/miragea-skills` or copy a skill folder into your agent's skills directory.
 - jump-cut-editor: remove silences, filler words and repeated words from video/audio using word timing; dry-run shows time saved
 - voice-patch: replace one phrase in a video narration with cloned-voice speech, video untouched
+- slides-to-video: slide images + notes to narrated MP4 with SRT, cloned voice
