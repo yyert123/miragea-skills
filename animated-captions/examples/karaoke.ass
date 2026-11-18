@@ -1,0 +1,41 @@
+[Script Info]
+ScriptType: v4.00+
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,96,&H00FFFFFF&,&H00FFE500&,&H00000000&,&H64000000&,-1,0,0,0,100,100,0,0,1,13,2,2,65,65,422,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.36,Default,,0,0,0,,{\c&H00FFE500&}Most{\r} videos lose
+Dialogue: 0,0:00:00.36,0:00:00.91,Default,,0,0,0,,{\c&H00FFE500&}Most{\r} {\c&H00FFE500&}videos{\r} lose
+Dialogue: 0,0:00:00.91,0:00:01.27,Default,,0,0,0,,{\c&H00FFE500&}Most{\r} {\c&H00FFE500&}videos{\r} {\c&H00FFE500&}lose{\r}
+Dialogue: 0,0:00:01.27,0:00:01.90,Default,,0,0,0,,{\c&H00FFE500&}viewers{\r} in the
+Dialogue: 0,0:00:01.90,0:00:02.09,Default,,0,0,0,,{\c&H00FFE500&}viewers{\r} {\c&H00FFE500&}in{\r} the
+Dialogue: 0,0:00:02.09,0:00:02.27,Default,,0,0,0,,{\c&H00FFE500&}viewers{\r} {\c&H00FFE500&}in{\r} {\c&H00FFE500&}the{\r}
+Dialogue: 0,0:00:02.27,0:00:02.74,Default,,0,0,0,,{\c&H00FFE500&}first{\r} three
+Dialogue: 0,0:00:02.74,0:00:03.22,Default,,0,0,0,,{\c&H00FFE500&}first{\r} {\c&H00FFE500&}three{\r}
+Dialogue: 0,0:00:03.22,0:00:03.80,Default,,0,0,0,,{\c&H00FFE500&}seconds.{\r}
+Dialogue: 0,0:00:03.80,0:00:04.49,Default,,0,0,0,,{\c&H00FFE500&}Captions{\r} that
+Dialogue: 0,0:00:04.49,0:00:04.84,Default,,0,0,0,,{\c&H00FFE500&}Captions{\r} {\c&H00FFE500&}that{\r}
+Dialogue: 0,0:00:04.84,0:00:05.18,Default,,0,0,0,,{\c&H00FFE500&}move{\r} with every
+Dialogue: 0,0:00:05.18,0:00:05.53,Default,,0,0,0,,{\c&H00FFE500&}move{\r} {\c&H00FFE500&}with{\r} every
+Dialogue: 0,0:00:05.53,0:00:05.96,Default,,0,0,0,,{\c&H00FFE500&}move{\r} {\c&H00FFE500&}with{\r} {\c&H00FFE500&}every{\r}
+Dialogue: 0,0:00:05.96,0:00:06.26,Default,,0,0,0,,{\c&H00FFE500&}word{\r} keep eyes on
+Dialogue: 0,0:00:06.26,0:00:06.67,Default,,0,0,0,,{\c&H00FFE500&}word{\r} {\c&H00FFE500&}keep{\r} eyes on
+Dialogue: 0,0:00:06.67,0:00:07.07,Default,,0,0,0,,{\c&H00FFE500&}word{\r} {\c&H00FFE500&}keep{\r} {\c&H00FFE500&}eyes{\r} on
+Dialogue: 0,0:00:07.07,0:00:07.27,Default,,0,0,0,,{\c&H00FFE500&}word{\r} {\c&H00FFE500&}keep{\r} {\c&H00FFE500&}eyes{\r} {\c&H00FFE500&}on{\r}
+Dialogue: 0,0:00:07.27,0:00:07.58,Default,,0,0,0,,{\c&H00FFE500&}the{\r} screen, and
+Dialogue: 0,0:00:07.58,0:00:08.19,Default,,0,0,0,,{\c&H00FFE500&}the{\r} {\c&H00FFE500&}screen,{\r} and
+Dialogue: 0,0:00:08.19,0:00:08.39,Default,,0,0,0,,{\c&H00FFE500&}the{\r} {\c&H00FFE500&}screen,{\r} {\c&H00FFE500&}and{\r}
+Dialogue: 0,0:00:08.39,0:00:08.76,Default,,0,0,0,,{\c&H00FFE500&}that{\r} is why short
+Dialogue: 0,0:00:08.76,0:00:08.94,Default,,0,0,0,,{\c&H00FFE500&}that{\r} {\c&H00FFE500&}is{\r} why short
+Dialogue: 0,0:00:08.94,0:00:09.22,Default,,0,0,0,,{\c&H00FFE500&}that{\r} {\c&H00FFE500&}is{\r} {\c&H00FFE500&}why{\r} short
+Dialogue: 0,0:00:09.22,0:00:09.68,Default,,0,0,0,,{\c&H00FFE500&}that{\r} {\c&H00FFE500&}is{\r} {\c&H00FFE500&}why{\r} {\c&H00FFE500&}short{\r}
+Dialogue: 0,0:00:09.68,0:00:10.23,Default,,0,0,0,,{\c&H00FFE500&}videos{\r} use them.
+Dialogue: 0,0:00:10.23,0:00:10.51,Default,,0,0,0,,{\c&H00FFE500&}videos{\r} {\c&H00FFE500&}use{\r} them.
+Dialogue: 0,0:00:10.51,0:00:11.07,Default,,0,0,0,,{\c&H00FFE500&}videos{\r} {\c&H00FFE500&}use{\r} {\c&H00FFE500&}them.{\r}

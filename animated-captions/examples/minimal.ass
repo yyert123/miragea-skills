@@ -1,0 +1,41 @@
+[Script Info]
+ScriptType: v4.00+
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,81,&H00FFFFFF&,&H00FFFFFF&,&H00000000&,&H64000000&,0,0,0,0,100,100,0,0,1,10,2,2,65,65,422,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.36,Default,,0,0,0,,{\c&H00FFFFFF&}Most{\r} {\c&H00FFFFFF&\alpha&H90&}videos{\r} {\c&H00FFFFFF&\alpha&H90&}lose{\r}
+Dialogue: 0,0:00:00.36,0:00:00.91,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}Most{\r} {\c&H00FFFFFF&}videos{\r} {\c&H00FFFFFF&\alpha&H90&}lose{\r}
+Dialogue: 0,0:00:00.91,0:00:01.27,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}Most{\r} {\c&H00FFFFFF&\alpha&H90&}videos{\r} {\c&H00FFFFFF&}lose{\r}
+Dialogue: 0,0:00:01.27,0:00:01.90,Default,,0,0,0,,{\c&H00FFFFFF&}viewers{\r} {\c&H00FFFFFF&\alpha&H90&}in{\r} {\c&H00FFFFFF&\alpha&H90&}the{\r} {\c&H00FFFFFF&\alpha&H90&}first{\r}
+Dialogue: 0,0:00:01.90,0:00:02.09,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}viewers{\r} {\c&H00FFFFFF&}in{\r} {\c&H00FFFFFF&\alpha&H90&}the{\r} {\c&H00FFFFFF&\alpha&H90&}first{\r}
+Dialogue: 0,0:00:02.09,0:00:02.27,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}viewers{\r} {\c&H00FFFFFF&\alpha&H90&}in{\r} {\c&H00FFFFFF&}the{\r} {\c&H00FFFFFF&\alpha&H90&}first{\r}
+Dialogue: 0,0:00:02.27,0:00:02.74,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}viewers{\r} {\c&H00FFFFFF&\alpha&H90&}in{\r} {\c&H00FFFFFF&\alpha&H90&}the{\r} {\c&H00FFFFFF&}first{\r}
+Dialogue: 0,0:00:02.74,0:00:03.22,Default,,0,0,0,,{\c&H00FFFFFF&}three{\r} {\c&H00FFFFFF&\alpha&H90&}seconds.{\r}
+Dialogue: 0,0:00:03.22,0:00:03.80,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}three{\r} {\c&H00FFFFFF&}seconds.{\r}
+Dialogue: 0,0:00:03.80,0:00:04.49,Default,,0,0,0,,{\c&H00FFFFFF&}Captions{\r} {\c&H00FFFFFF&\alpha&H90&}that{\r} {\c&H00FFFFFF&\alpha&H90&}move{\r}
+Dialogue: 0,0:00:04.49,0:00:04.84,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}Captions{\r} {\c&H00FFFFFF&}that{\r} {\c&H00FFFFFF&\alpha&H90&}move{\r}
+Dialogue: 0,0:00:04.84,0:00:05.18,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}Captions{\r} {\c&H00FFFFFF&\alpha&H90&}that{\r} {\c&H00FFFFFF&}move{\r}
+Dialogue: 0,0:00:05.18,0:00:05.53,Default,,0,0,0,,{\c&H00FFFFFF&}with{\r} {\c&H00FFFFFF&\alpha&H90&}every{\r} {\c&H00FFFFFF&\alpha&H90&}word{\r} {\c&H00FFFFFF&\alpha&H90&}keep{\r}
+Dialogue: 0,0:00:05.53,0:00:05.96,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}with{\r} {\c&H00FFFFFF&}every{\r} {\c&H00FFFFFF&\alpha&H90&}word{\r} {\c&H00FFFFFF&\alpha&H90&}keep{\r}
+Dialogue: 0,0:00:05.96,0:00:06.26,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}with{\r} {\c&H00FFFFFF&\alpha&H90&}every{\r} {\c&H00FFFFFF&}word{\r} {\c&H00FFFFFF&\alpha&H90&}keep{\r}
+Dialogue: 0,0:00:06.26,0:00:06.67,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}with{\r} {\c&H00FFFFFF&\alpha&H90&}every{\r} {\c&H00FFFFFF&\alpha&H90&}word{\r} {\c&H00FFFFFF&}keep{\r}
+Dialogue: 0,0:00:06.67,0:00:07.07,Default,,0,0,0,,{\c&H00FFFFFF&}eyes{\r} {\c&H00FFFFFF&\alpha&H90&}on{\r} {\c&H00FFFFFF&\alpha&H90&}the{\r} {\c&H00FFFFFF&\alpha&H90&}screen,{\r}
+Dialogue: 0,0:00:07.07,0:00:07.27,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}eyes{\r} {\c&H00FFFFFF&}on{\r} {\c&H00FFFFFF&\alpha&H90&}the{\r} {\c&H00FFFFFF&\alpha&H90&}screen,{\r}
+Dialogue: 0,0:00:07.27,0:00:07.58,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}eyes{\r} {\c&H00FFFFFF&\alpha&H90&}on{\r} {\c&H00FFFFFF&}the{\r} {\c&H00FFFFFF&\alpha&H90&}screen,{\r}
+Dialogue: 0,0:00:07.58,0:00:08.19,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}eyes{\r} {\c&H00FFFFFF&\alpha&H90&}on{\r} {\c&H00FFFFFF&\alpha&H90&}the{\r} {\c&H00FFFFFF&}screen,{\r}
+Dialogue: 0,0:00:08.19,0:00:08.39,Default,,0,0,0,,{\c&H00FFFFFF&}and{\r} {\c&H00FFFFFF&\alpha&H90&}that{\r} {\c&H00FFFFFF&\alpha&H90&}is{\r} {\c&H00FFFFFF&\alpha&H90&}why{\r}
+Dialogue: 0,0:00:08.39,0:00:08.76,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}and{\r} {\c&H00FFFFFF&}that{\r} {\c&H00FFFFFF&\alpha&H90&}is{\r} {\c&H00FFFFFF&\alpha&H90&}why{\r}
+Dialogue: 0,0:00:08.76,0:00:08.94,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}and{\r} {\c&H00FFFFFF&\alpha&H90&}that{\r} {\c&H00FFFFFF&}is{\r} {\c&H00FFFFFF&\alpha&H90&}why{\r}
+Dialogue: 0,0:00:08.94,0:00:09.22,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}and{\r} {\c&H00FFFFFF&\alpha&H90&}that{\r} {\c&H00FFFFFF&\alpha&H90&}is{\r} {\c&H00FFFFFF&}why{\r}
+Dialogue: 0,0:00:09.22,0:00:09.68,Default,,0,0,0,,{\c&H00FFFFFF&}short{\r} {\c&H00FFFFFF&\alpha&H90&}videos{\r} {\c&H00FFFFFF&\alpha&H90&}use{\r}
+Dialogue: 0,0:00:09.68,0:00:10.23,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}short{\r} {\c&H00FFFFFF&}videos{\r} {\c&H00FFFFFF&\alpha&H90&}use{\r}
+Dialogue: 0,0:00:10.23,0:00:10.51,Default,,0,0,0,,{\c&H00FFFFFF&\alpha&H90&}short{\r} {\c&H00FFFFFF&\alpha&H90&}videos{\r} {\c&H00FFFFFF&}use{\r}
+Dialogue: 0,0:00:10.51,0:00:11.07,Default,,0,0,0,,{\c&H00FFFFFF&}them.{\r}

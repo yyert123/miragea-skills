@@ -1,0 +1,36 @@
+{
+  "text": "Most videos lose viewers in the first three seconds. Captions that move with every word keep eyes on the screen, and that is why short videos use them.",
+  "language": "English",
+  "segments": [
+    {
+      "end": 2.266666666666667,
+      "text": "Most videos lose viewers in the",
+      "start": 0.0
+    },
+    {
+      "end": 3.7967857142857144,
+      "text": "first three seconds",
+      "start": 2.266666666666667
+    },
+    {
+      "end": 5.96,
+      "text": "Captions that move with every w",
+      "start": 3.7967857142857144
+    },
+    {
+      "end": 8.3875,
+      "text": "ord keep eyes on the screen, and",
+      "start": 5.96
+    },
+    {
+      "end": 10.600000000000001,
+      "text": "that is why short videos use th",
+      "start": 8.3875
+    },
+    {
+      "end": 10.72,
+      "text": "em",
+      "start": 10.600000000000001
+    }
+  ]
+}
