@@ -24,3 +24,4 @@
 - voice-patch: replace one phrase in a video narration with cloned-voice speech, video untouched
 - slides-to-video: slide images + notes to narrated MP4 with SRT, cloned voice
 - dub-batch: batch multi-language AI dubbing of one video in cloned voice
+- hyperframes-narration: script to per-scene cloned-voice narration + HyperFrames HTML composition with timed captions (HeyGen HyperFrames voiceover)

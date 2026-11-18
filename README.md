@@ -200,3 +200,4 @@ MIT. Skills follow the open [Agent Skills specification](https://agentskills.io/
 | `voice-patch` | Fix a wrong word or number in a finished video by re-speaking it in your cloned voice (AI overdub) |
 | `slides-to-video` | Turn slides plus speaker notes into a narrated MP4 + SRT in your cloned voice (PowerPoint/PDF to video) |
 | `dub-batch` | One video into many languages (Spanish, Portuguese, Hindi...) in your cloned voice, one command |
+| `hyperframes-narration` | Voiceover for HeyGen HyperFrames (HTML to video): scene audio in your cloned voice, word-timed captions, a ready composition that lints clean |
