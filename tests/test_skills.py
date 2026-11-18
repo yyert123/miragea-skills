@@ -184,3 +184,13 @@ def test_client_rejects_ref_url_with_clear_hint(tmp_path, monkeypatch):
     with pytest.raises(m.MirageaError) as e:
         c.speak("hi", tmp_path / "a.wav", reference_audio_url="https://x/y.wav")
     assert "actor_id" in str(e.value) and "/v1/actors" in str(e.value)
+
+
+def test_slides_to_video_notes_and_order(tmp_path):
+    m = load("slides-to-video", "slides2video")
+    notes = m.parse_notes((ROOT / "slides-to-video/examples/notes.md").read_text())
+    assert len(notes) == 3 and notes[2].startswith("Thanks")
+    for n in ("slide-10.png", "slide-2.png", "slide-1.jpg"):
+        (tmp_path / n).write_bytes(b"x")
+    assert [p.name for p in m.find_slides(tmp_path)] == ["slide-1.jpg", "slide-2.png", "slide-10.png"]
+    assert m.main([str(tmp_path), "--notes", str(ROOT / "slides-to-video/examples/notes.md"), "--dry-run"]) == 0
