@@ -239,3 +239,59 @@ def test_animated_captions_cli_offline(tmp_path):
     assert (tmp_path / "a.ass").exists() and (tmp_path / "a.words.json").exists()
     with pytest.raises(SystemExit):
         m.main([str(src), "--transcript", str(tr), "--active", "nope", "--size", "1080x1920"])
+
+
+def test_manim_narration_spoken_math_and_parse():
+    m = load("manim-narration", "manim_narrate")
+    assert m.spoken("The derivative of x^2 is 2x.") == "The derivative of x squared is 2x."
+    assert m.spoken("f(x) = x^2 + 3/4") == "f(x) equals x squared plus 3 over 4"
+    assert "square root of 2 times pi" in m.spoken("√2 · π")
+    sc = m.parse_script("## Intro Part\nHello x^2.\n\n## Intro Part\nAgain.\n")
+    assert [s["key"] for s in sc] == ["intro-part", "intro-part-2"] and sc[0]["say"] == "Hello x squared."
+
+
+def test_manim_narration_word_time_and_beat(tmp_path):
+    h = load("manim-narration", "narration_manim")
+    ws = [{"text": "The", "start": 0.0, "end": 0.2}, {"text": "derivative,", "start": 0.3, "end": 1.0},
+          {"text": "the", "start": 1.2, "end": 1.3}]
+    assert h.word_time(ws, "Derivative") == 0.3 and h.word_time(ws, "the", 2) == 1.2
+    with pytest.raises(KeyError):
+        h.word_time(ws, "nope")
+
+    class Fake:
+        narration_dir = str(tmp_path)
+        narration_gap = 0.0
+        time = 0.0
+        sounds, waits = [], []
+
+        def add_sound(self, p):
+            self.sounds.append(p)
+
+        def play(self, rt):
+            self.time += rt
+
+        def wait(self, t):
+            self.waits.append(t)
+            self.time += t
+
+    class S(h.Narrated, Fake):
+        narration_dir = str(tmp_path)
+
+    (tmp_path / "narration.json").write_text(json.dumps({"scenes": [{"key": "a", "file": "a.mp3", "durationSec": 2.0, "words": ws}]}))
+    s = S()
+    with s.narrate("a") as n:
+        rt = n.until("derivative")
+        s.play(rt)
+        assert abs(rt - 0.3) < 1e-9
+    assert abs(s.time - 2.0) < 1e-6 and s.sounds and (tmp_path / "narration.timeline.json").exists()
+
+
+def test_manim_narration_plan_dry_run_and_mux_cmd(tmp_path):
+    m = load("manim-narration", "manim_narrate")
+    out = tmp_path / "n"
+    assert m.main(["plan", str(ROOT / "manim-narration" / "examples" / "script.md"), "--out", str(out), "--dry-run"]) == 0
+    man = json.loads((out / "narration.json").read_text())
+    assert [s["key"] for s in man["scenes"]] == ["intro", "secant", "result"]
+    assert man["scenes"][1]["start"] > man["scenes"][0]["start"] and (out / "narration.srt").exists()
+    cmd = m.mux_cmd(tmp_path / "v.mp4", [(out / "intro.mp3", 0.0), (out / "secant.mp3", 3.5)], tmp_path / "o.mp4")
+    assert "adelay=3500:all=1" in " ".join(cmd) and "copy" in cmd
