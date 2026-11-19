@@ -1,0 +1,48 @@
+{
+  "source": "talk.mp4",
+  "source_language": "en",
+  "languages": [
+    "es"
+  ],
+  "cues": [
+    {
+      "id": 1,
+      "start": 0.32,
+      "end": 5.712,
+      "text": "Printing then, for our purpose, may be considered as the art of making books by"
+    },
+    {
+      "id": 2,
+      "start": 5.813000000000001,
+      "end": 8.088000000000001,
+      "text": "means of movable types."
+    },
+    {
+      "id": 3,
+      "start": 8.088000000000001,
+      "end": 13.172266666666665,
+      "text": "Now, as all books, not primarily intended as picture books,"
+    },
+    {
+      "id": 4,
+      "start": 13.26151111111111,
+      "end": 17.306250000000002,
+      "text": "consist principally of types composed to form letterpress,"
+    },
+    {
+      "id": 5,
+      "start": 17.406597222222224,
+      "end": 22.0,
+      "text": "it is of the first importance that the letter used should be fine in form."
+    }
+  ],
+  "translations": {
+    "es": {
+      "1": "La imprenta, para nuestro propósito, puede considerarse el arte de hacer libros",
+      "2": "por medio de tipos móviles.",
+      "3": "Ahora bien, como todos los libros que no son principalmente ilustrados",
+      "4": "constan sobre todo de tipos compuestos para formar texto impreso,",
+      "5": "es de suma importancia que la letra utilizada sea de bella forma."
+    }
+  }
+}

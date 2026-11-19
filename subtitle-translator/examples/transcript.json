@@ -1,0 +1,62 @@
+{
+  "sha": "2f65396555fc468a",
+  "text": "Printing then, for our purpose, may be considered as the art of making books by means of movable types. Now, as all books, not primarily intended as picture books, consist principally of types composed to form letterpress, it is of the first importance that the letter used should be fine in form.",
+  "language": "English",
+  "segments": [
+    {
+      "end": 2.6803174603174607,
+      "text": "Printing then, for our purpose",
+      "start": 0.32
+    },
+    {
+      "end": 4.5,
+      "text": "may be considered as the art of",
+      "start": 2.6803174603174607
+    },
+    {
+      "end": 7.126,
+      "text": "making books by means of movable",
+      "start": 4.5
+    },
+    {
+      "end": 8.088000000000001,
+      "text": "types",
+      "start": 7.126
+    },
+    {
+      "end": 11.208888888888888,
+      "text": "Now, as all books, not primaril",
+      "start": 8.088000000000001
+    },
+    {
+      "end": 13.44,
+      "text": "y intended as picture books, con",
+      "start": 11.208888888888888
+    },
+    {
+      "end": 15.5,
+      "text": "sist principally of types compos",
+      "start": 13.44
+    },
+    {
+      "end": 17.908333333333335,
+      "text": "ed to form letterpress, it is of",
+      "start": 15.5
+    },
+    {
+      "end": 19.733333333333334,
+      "text": "the first importance that the l",
+      "start": 17.908333333333335
+    },
+    {
+      "end": 21.86,
+      "text": "etter used should be fine in for",
+      "start": 19.733333333333334
+    },
+    {
+      "end": 22.0,
+      "text": "m",
+      "start": 21.86
+    }
+  ]
+}
