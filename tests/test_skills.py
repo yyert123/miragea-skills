@@ -309,3 +309,11 @@ def test_subtitle_translator_build_and_lint(tmp_path):
     assert (tmp_path / "talk.ja.vtt").exists()
     assert m.wrap("a" * 40 + " " + "b" * 40, 42) == "a" * 40 + "\n" + "b" * 40
     assert any("missing" in w or "too" in w or "cps" in w for w in m.lint([{"id": 1, "start": 0, "end": 1, "text": "x" * 60}], "es"))
+
+
+def test_thumbnail_title_ab_lint_and_cmd():
+    m = load("thumbnail-title-ab", "thumb_ab")
+    assert m.lint({"title": "x" * 61, "thumb_text": "a b c d e"}) and not m.lint({"title": "Short", "thumb_text": "Go now"})
+    assert m.frame_times(100, 4) == [20.0, 40.0, 60.0, 80.0]
+    cmd = m.render_cmd("f.jpg", "it's 50%", "o.jpg")
+    assert "1280:720" in cmd[cmd.index("-vf") + 1] and "IT\u2019S 50\\%" in cmd[cmd.index("-vf") + 1]
