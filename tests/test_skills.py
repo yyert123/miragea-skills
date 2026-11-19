@@ -295,3 +295,17 @@ def test_manim_narration_plan_dry_run_and_mux_cmd(tmp_path):
     assert man["scenes"][1]["start"] > man["scenes"][0]["start"] and (out / "narration.srt").exists()
     cmd = m.mux_cmd(tmp_path / "v.mp4", [(out / "intro.mp3", 0.0), (out / "secant.mp3", 3.5)], tmp_path / "o.mp4")
     assert "adelay=3500:all=1" in " ".join(cmd) and "copy" in cmd
+
+
+def test_subtitle_translator_build_and_lint(tmp_path):
+    m = load("subtitle-translator", "subtitle_translate")
+    src = ROOT / "subtitle-translator" / "examples" / "talk.translate.json"
+    job = tmp_path / "talk.translate.json"
+    data = json.loads(src.read_text())
+    data["translations"]["ja"] = {"1": "印刷とは、可動活字で本を作る技術と考えられます。" * 2}
+    job.write_text(json.dumps(data, ensure_ascii=False))
+    assert m.main(["build", str(job)]) == 0
+    assert (tmp_path / "talk.es.srt").read_text().startswith("1\n00:00:00,320")
+    assert (tmp_path / "talk.ja.vtt").exists()
+    assert m.wrap("a" * 40 + " " + "b" * 40, 42) == "a" * 40 + "\n" + "b" * 40
+    assert any("missing" in w or "too" in w or "cps" in w for w in m.lint([{"id": 1, "start": 0, "end": 1, "text": "x" * 60}], "es"))
