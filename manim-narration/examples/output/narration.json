@@ -1,0 +1,386 @@
+{
+  "totalSec": 28.104,
+  "pad": 0.6,
+  "dryRun": false,
+  "engine": "Miragea https://miragea.ai",
+  "scenes": [
+    {
+      "key": "intro",
+      "text": "The derivative of x^2 is 2x. Why? Watch the slope of the curve change as the point moves.",
+      "say": "The derivative of x squared is 2x. Why? Watch the slope of the curve change as the point moves.",
+      "file": "intro.mp3",
+      "hash": "d6f83eed43589967",
+      "start": 0.0,
+      "durationSec": 7.92,
+      "words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.194
+        },
+        {
+          "text": "derivative",
+          "start": 0.291,
+          "end": 1.165
+        },
+        {
+          "text": "of",
+          "start": 1.262,
+          "end": 1.359
+        },
+        {
+          "text": "x",
+          "start": 1.456,
+          "end": 1.536
+        },
+        {
+          "text": "squared",
+          "start": 1.553,
+          "end": 2.135
+        },
+        {
+          "text": "is",
+          "start": 2.233,
+          "end": 2.33
+        },
+        {
+          "text": "2x.",
+          "start": 2.427,
+          "end": 2.601
+        },
+        {
+          "text": "Why?",
+          "start": 3.126,
+          "end": 3.476
+        },
+        {
+          "text": "Watch",
+          "start": 4.0,
+          "end": 4.347
+        },
+        {
+          "text": "the",
+          "start": 4.433,
+          "end": 4.607
+        },
+        {
+          "text": "slope",
+          "start": 4.693,
+          "end": 5.04
+        },
+        {
+          "text": "of",
+          "start": 5.127,
+          "end": 5.213
+        },
+        {
+          "text": "the",
+          "start": 5.3,
+          "end": 5.473
+        },
+        {
+          "text": "curve",
+          "start": 5.56,
+          "end": 5.907
+        },
+        {
+          "text": "change",
+          "start": 5.993,
+          "end": 6.347
+        },
+        {
+          "text": "as",
+          "start": 6.436,
+          "end": 6.524
+        },
+        {
+          "text": "the",
+          "start": 6.613,
+          "end": 6.791
+        },
+        {
+          "text": "point",
+          "start": 6.88,
+          "end": 7.236
+        },
+        {
+          "text": "moves.",
+          "start": 7.324,
+          "end": 7.68
+        }
+      ]
+    },
+    {
+      "key": "secant",
+      "text": "Pick two points on the curve and draw the line through them. As h goes to 0, the secant line becomes the tangent, and its slope is the derivative.",
+      "say": "Pick two points on the curve and draw the line through them. As h goes to 0, the secant line becomes the tangent, and its slope is the derivative.",
+      "file": "secant.mp3",
+      "hash": "424347fcccf93d90",
+      "start": 8.52,
+      "durationSec": 10.464,
+      "words": [
+        {
+          "text": "Pick",
+          "start": 0.0,
+          "end": 0.229
+        },
+        {
+          "text": "two",
+          "start": 0.306,
+          "end": 0.458
+        },
+        {
+          "text": "points",
+          "start": 0.535,
+          "end": 0.917
+        },
+        {
+          "text": "on",
+          "start": 0.993,
+          "end": 1.073
+        },
+        {
+          "text": "the",
+          "start": 1.146,
+          "end": 1.299
+        },
+        {
+          "text": "curve",
+          "start": 1.375,
+          "end": 1.681
+        },
+        {
+          "text": "and",
+          "start": 1.757,
+          "end": 1.91
+        },
+        {
+          "text": "draw",
+          "start": 1.91,
+          "end": 2.169
+        },
+        {
+          "text": "the",
+          "start": 2.256,
+          "end": 2.429
+        },
+        {
+          "text": "line",
+          "start": 2.515,
+          "end": 2.774
+        },
+        {
+          "text": "through",
+          "start": 2.861,
+          "end": 3.379
+        },
+        {
+          "text": "them.",
+          "start": 3.466,
+          "end": 3.725
+        },
+        {
+          "text": "As",
+          "start": 3.725,
+          "end": 3.85
+        },
+        {
+          "text": "h",
+          "start": 3.975,
+          "end": 4.055
+        },
+        {
+          "text": "goes",
+          "start": 4.101,
+          "end": 4.476
+        },
+        {
+          "text": "to",
+          "start": 4.602,
+          "end": 4.727
+        },
+        {
+          "text": "0,",
+          "start": 4.852,
+          "end": 4.932
+        },
+        {
+          "text": "the",
+          "start": 4.977,
+          "end": 5.228
+        },
+        {
+          "text": "secant",
+          "start": 5.353,
+          "end": 5.979
+        },
+        {
+          "text": "line",
+          "start": 6.104,
+          "end": 6.48
+        },
+        {
+          "text": "becomes",
+          "start": 6.619,
+          "end": 7.036
+        },
+        {
+          "text": "the",
+          "start": 7.175,
+          "end": 7.314
+        },
+        {
+          "text": "tangent,",
+          "start": 7.453,
+          "end": 7.87
+        },
+        {
+          "text": "and",
+          "start": 8.078,
+          "end": 8.217
+        },
+        {
+          "text": "its",
+          "start": 8.356,
+          "end": 8.495
+        },
+        {
+          "text": "slope",
+          "start": 8.634,
+          "end": 8.989
+        },
+        {
+          "text": "is",
+          "start": 9.078,
+          "end": 9.166
+        },
+        {
+          "text": "the",
+          "start": 9.255,
+          "end": 9.433
+        },
+        {
+          "text": "derivative.",
+          "start": 9.521,
+          "end": 10.32
+        }
+      ]
+    },
+    {
+      "key": "result",
+      "text": "So for f(x) = x^2, the slope at any point is 2x. At x = 3 the slope is 6.",
+      "say": "So for f(x) equals x squared, the slope at any point is 2x. At x equals 3 the slope is 6.",
+      "file": "result.mp3",
+      "hash": "9e03e4b0cd854b03",
+      "start": 19.584,
+      "durationSec": 8.52,
+      "words": [
+        {
+          "text": "So",
+          "start": 0.0,
+          "end": 0.122
+        },
+        {
+          "text": "for",
+          "start": 0.244,
+          "end": 0.488
+        },
+        {
+          "text": "f(x)",
+          "start": 0.61,
+          "end": 0.731
+        },
+        {
+          "text": "equals",
+          "start": 0.853,
+          "end": 1.463
+        },
+        {
+          "text": "x",
+          "start": 1.585,
+          "end": 1.665
+        },
+        {
+          "text": "squared,",
+          "start": 1.707,
+          "end": 2.438
+        },
+        {
+          "text": "the",
+          "start": 2.56,
+          "end": 2.804
+        },
+        {
+          "text": "slope",
+          "start": 2.804,
+          "end": 3.394
+        },
+        {
+          "text": "at",
+          "start": 3.542,
+          "end": 3.689
+        },
+        {
+          "text": "any",
+          "start": 3.837,
+          "end": 4.132
+        },
+        {
+          "text": "point",
+          "start": 4.28,
+          "end": 4.87
+        },
+        {
+          "text": "is",
+          "start": 5.017,
+          "end": 5.165
+        },
+        {
+          "text": "2x.",
+          "start": 5.312,
+          "end": 5.46
+        },
+        {
+          "text": "At",
+          "start": 5.46,
+          "end": 5.587
+        },
+        {
+          "text": "x",
+          "start": 5.714,
+          "end": 5.794
+        },
+        {
+          "text": "equals",
+          "start": 5.841,
+          "end": 6.476
+        },
+        {
+          "text": "3",
+          "start": 6.603,
+          "end": 6.683
+        },
+        {
+          "text": "the",
+          "start": 6.73,
+          "end": 6.984
+        },
+        {
+          "text": "slope",
+          "start": 7.111,
+          "end": 7.619
+        },
+        {
+          "text": "is",
+          "start": 7.746,
+          "end": 7.873
+        },
+        {
+          "text": "6.",
+          "start": 8.0,
+          "end": 8.0
+        }
+      ]
+    }
+  ]
+}

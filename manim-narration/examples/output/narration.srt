@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:02,601
+The derivative of x squared is 2x.
+
+2
+00:00:03,126 --> 00:00:03,476
+Why?
+
+3
+00:00:04,000 --> 00:00:07,680
+Watch the slope of the curve change as the point moves.
+
+4
+00:00:08,520 --> 00:00:12,245
+Pick two points on the curve and draw the line through them.
+
+5
+00:00:12,245 --> 00:00:17,953
+As h goes to 0, the secant line becomes the tangent, and its slope is the
+
+6
+00:00:18,041 --> 00:00:18,840
+derivative.
+
+7
+00:00:19,584 --> 00:00:25,044
+So for f(x) equals x squared, the slope at any point is 2x.
+
+8
+00:00:25,044 --> 00:00:27,584
+At x equals 3 the slope is 6.
