@@ -317,3 +317,12 @@ def test_thumbnail_title_ab_lint_and_cmd():
     assert m.frame_times(100, 4) == [20.0, 40.0, 60.0, 80.0]
     cmd = m.render_cmd("f.jpg", "it's 50%", "o.jpg")
     assert "1280:720" in cmd[cmd.index("-vf") + 1] and "IT\u2019S 50\\%" in cmd[cmd.index("-vf") + 1]
+
+
+def test_listicle_parse_lint_dry(tmp_path):
+    m = load("listicle-reels", "listicle")
+    t, h, items = m.parse((ROOT / "listicle-reels/examples/tips.md").read_text())
+    assert t.startswith("3 habits") and h.startswith("Three") and len(items) == 3 and items[0][0] == "Cut the first second"
+    assert m.lint(t, h, items) == []
+    assert any("no spoken" in w for w in m.lint("T", "", [("A", "")]))
+    assert m.main([str(ROOT / "listicle-reels/examples/tips.md"), "--dry-run"]) == 0
