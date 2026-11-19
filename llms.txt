@@ -26,3 +26,4 @@
 - dub-batch: batch multi-language AI dubbing of one video in cloned voice
 - hyperframes-narration: script to per-scene cloned-voice narration + HyperFrames HTML composition with timed captions (HeyGen HyperFrames voiceover)
 - animated-captions: word-highlight animated captions (Hormozi / karaoke / highlighter styles) for TikTok, Reels and Shorts, .ass + burned MP4 via Miragea ASR and ffmpeg
+- manim-narration: voiceover for Manim / 3Blue1Brown-style math explainer videos in a cloned voice, word-timed so animations land on spoken words (Miragea TTS + ASR)
