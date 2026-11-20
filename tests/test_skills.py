@@ -326,3 +326,11 @@ def test_listicle_parse_lint_dry(tmp_path):
     assert m.lint(t, h, items) == []
     assert any("no spoken" in w for w in m.lint("T", "", [("A", "")]))
     assert m.main([str(ROOT / "listicle-reels/examples/tips.md"), "--dry-run"]) == 0
+
+
+def test_quote_reels_parse_lint_dry():
+    m = load("quote-reels", "quotes")
+    t, q = m.parse((ROOT / "quote-reels/examples/quotes.md").read_text())
+    assert t and len(q) == 3 and q[2][1] == "Seneca"
+    assert m.lint("x", [("a b", "")])
+    assert m.main([str(ROOT / "quote-reels/examples/quotes.md"), "--dry-run"]) == 0
