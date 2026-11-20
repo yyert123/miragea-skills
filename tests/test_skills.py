@@ -334,3 +334,12 @@ def test_quote_reels_parse_lint_dry():
     assert t and len(q) == 3 and q[2][1] == "Seneca"
     assert m.lint("x", [("a b", "")])
     assert m.main([str(ROOT / "quote-reels/examples/quotes.md"), "--dry-run"]) == 0
+
+
+def test_changelog_video_parse_lint_dry():
+    m = load("changelog-video", "changelog")
+    t, it = m.parse((ROOT / "changelog-video/examples/release.md").read_text())
+    assert t == "Acme Editor 2.4" and len(it) == 3 and it[2][0] == "Fixed"
+    assert m.lint(t, it) == [] and m.lint("x", [("", "fixed #123 bug")])
+    assert len(m.cards(t, it)) == 4
+    assert m.main([str(ROOT / "changelog-video/examples/release.md"), "--dry-run"]) == 0
