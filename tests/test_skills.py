@@ -343,3 +343,11 @@ def test_changelog_video_parse_lint_dry():
     assert m.lint(t, it) == [] and m.lint("x", [("", "fixed #123 bug")])
     assert len(m.cards(t, it)) == 4
     assert m.main([str(ROOT / "changelog-video/examples/release.md"), "--dry-run"]) == 0
+
+
+def test_faq_reels_parse_lint_dry():
+    m = load("faq-reels", "faq")
+    t, q = m.parse((ROOT / "faq-reels/examples/faq.md").read_text())
+    assert t and len(q) == 3 and q[0][0].endswith("?") and q[0][1]
+    assert m.lint("x", [("no q mark", "")])
+    assert m.main([str(ROOT / "faq-reels/examples/faq.md"), "--dry-run"]) == 0
