@@ -351,3 +351,11 @@ def test_faq_reels_parse_lint_dry():
     assert t and len(q) == 3 and q[0][0].endswith("?") and q[0][1]
     assert m.lint("x", [("no q mark", "")])
     assert m.main([str(ROOT / "faq-reels/examples/faq.md"), "--dry-run"]) == 0
+
+
+def test_myth_busting_reels_parse_lint_dry():
+    m = load("myth-busting-reels", "myth")
+    t, q = m.parse((ROOT / "myth-busting-reels/examples/myths.md").read_text())
+    assert t and len(q) == 3 and not q[0][0].lower().startswith("myth") and q[0][1]
+    assert m.lint("x", [("m", "")])
+    assert m.main([str(ROOT / "myth-busting-reels/examples/myths.md"), "--dry-run"]) == 0
