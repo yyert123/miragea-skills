@@ -359,3 +359,11 @@ def test_myth_busting_reels_parse_lint_dry():
     assert t and len(q) == 3 and not q[0][0].lower().startswith("myth") and q[0][1]
     assert m.lint("x", [("m", "")])
     assert m.main([str(ROOT / "myth-busting-reels/examples/myths.md"), "--dry-run"]) == 0
+
+
+def test_howto_steps_reels_parse_lint_dry():
+    m = load("howto-steps-reels", "steps")
+    t, q = m.parse((ROOT / "howto-steps-reels/examples/steps.md").read_text())
+    assert t and len(q) == 3 and q[0][0].startswith("Save") and q[0][1]
+    assert m.lint(t, q) == []
+    assert m.main([str(ROOT / "howto-steps-reels/examples/steps.md"), "--dry-run"]) == 0
